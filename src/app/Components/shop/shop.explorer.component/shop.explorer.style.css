@@ -1,0 +1,37 @@
+.shop-explorer {
+
+    background-image: url('/assets/shop/shop_bg_builds.png');
+    /* Otras propiedades para mejorar la visualización */
+    aspect-ratio: 1825 / 1618;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 94%;
+}
+
+.shop-tabs{
+    /* background-image: url('/assets/shop/shop_tab_builds_open.png');
+        aspect-ratio: 1825 / 1618;
+
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain; */
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 6%;
+}
+
+.shop-tab{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.shop-container{
+    width: 100%;
+    display: flex;
+}
