@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ShopExplorerComponent } from './Components/shop/shop.explorer.component/shop.explorer.component';
+import { ShopExplorerComponent } from './Components/shop/shop.explorer/shop.explorer.component';
 
 
 @Component({

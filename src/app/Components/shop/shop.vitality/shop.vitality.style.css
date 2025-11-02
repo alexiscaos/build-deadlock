@@ -1,0 +1,48 @@
+.shop-vitality {
+
+    background-image: url('/assets/shop/vitality/shop_bg_vitality.png');
+    aspect-ratio: 1825 / 1618;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 94%;
+    /* display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); */
+    display: flex;
+
+    padding: 1.5rem;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+
+.item-tier-1 {
+    border: red solid 1px;
+    width: 45%;
+    height: 42%;
+    margin-top: 5%;
+}
+
+
+.item-tier-2 {
+    border: green solid 1px;
+    width: 52%;
+    height: 48%;    
+}
+
+.item-tier-3 {
+border: white solid 2px;
+    width: 44%;
+    height: 52%;
+}
+
+
+.item-tier-4 {
+border: blue solid 1px;
+    width: 53%;
+    height: 52%;
+}

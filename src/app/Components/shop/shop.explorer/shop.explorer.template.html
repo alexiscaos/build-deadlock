@@ -1,0 +1,43 @@
+<div class="shop-container">
+    <div class="shop-tabs">
+        <!-- Tab explorer/build -->
+        @if(activeTab === 'shopExplorer'){
+            <img class="shop-tab" (click)="setActiveTab('shopExplorer')" src="/assets/shop/explorer/shop_tab_builds_open.png" alt="">
+        }@else{
+            <img class="shop-tab" (click)="setActiveTab('shopExplorer')" src="/assets/shop/explorer/shop_tab_builds.png" alt="">
+        }
+        <!-- Tab gun -->    
+
+        @if(activeTab === 'shopGun'){
+            <img class="shop-tab" (click)="setActiveTab('shopGun')" src="/assets/shop/gun/shop_tab_weapon_open.png" alt="">
+        }@else{
+            <img class="shop-tab" (click)="setActiveTab('shopGun')" src="/assets/shop/gun/shop_tab_weapon.png" alt="">
+        }
+        <!-- Tab vitality -->
+
+        @if(activeTab === 'shopVitality'){
+            <img class="shop-tab" (click)="setActiveTab('shopVitality')" src="/assets/shop/vitality/shop_tab_vitality_open.png" alt="">
+        }@else{
+            <img class="shop-tab" (click)="setActiveTab('shopVitality')" src="/assets/shop/vitality/shop_tab_vitality.png" alt="">
+        }
+
+        <!-- Tab tech -->
+
+        @if(activeTab === 'shopTech'){
+            <img class="shop-tab" (click)="setActiveTab('shopTech')" src="/assets/shop/tech/shop_tab_tech_open.png" alt="">
+        }@else{
+            <img class="shop-tab" (click)="setActiveTab('shopTech')" src="/assets/shop/tech/shop_tab_tech.png" alt="">
+        }
+    </div>
+    <div class="items-container" [ngSwitch]="activeTab">
+        <div class="shop-explorer" *ngSwitchCase="'shopExplorer'">
+            <!-- Contenido del componente de exploración de la tienda -->
+            <!-- <p>shop.explorer.component works!</p> -->
+
+        </div>
+        <app-shop-gun class="shop-container" *ngSwitchCase="'shopGun'"> </app-shop-gun>
+        <app-shop-vitality class="shop-container" *ngSwitchCase="'shopVitality'"> </app-shop-vitality>
+        <app-shop-tech class="shop-container" *ngSwitchCase="'shopTech'"> </app-shop-tech>
+    </div>
+
+</div>

@@ -1,6 +1,6 @@
 .shop-explorer {
 
-    background-image: url('/assets/shop/shop_bg_builds.png');
+    background-image: url('/assets/shop/explorer/shop_bg_builds.png');
     /* Otras propiedades para mejorar la visualización */
     aspect-ratio: 1825 / 1618;
     background-position: 0 0;
@@ -11,6 +11,7 @@
     overflow: hidden;
     width: 94%;
 }
+
 
 .shop-tabs{
     /* background-image: url('/assets/shop/shop_tab_builds_open.png');
@@ -32,6 +33,11 @@
 }
 
 .shop-container{
+    width: 100%;
+    display: flex;
+}
+
+.items-container{
     width: 100%;
     display: flex;
 }
