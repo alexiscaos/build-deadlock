@@ -30,7 +30,6 @@
 
 
 .item-tier-2 {
-    border: green solid 1px;
     width: 53%;
     height: 50%;
     grid-template-columns: repeat(6, 1fr);
@@ -41,46 +40,51 @@
 }
 
 .item-tier-3 {
-
-    border: white solid 1px;
     width: 53%;
     height: 50%;
-
+    grid-template-columns: repeat(6, 1fr);
+    padding-top: 6%;
+    padding-left: 5%;
+    padding-bottom: 4%;
+    padding-right: 2%;
 }
 
 
 .item-tier-4 {
-    border: blue solid 1px;
     width: 46%;
-    height: 49%;
+    height: 50%;
+    grid-template-columns: repeat(5, 1fr);
+    padding-top: 7%;
+    padding-left: 4%;
+    padding-right: 3%;
+    padding-bottom: 4%;
 }
 
 .item-container::before {
     content: '';
-    position: absolute;
+    /* position: absolute;
     top: -2%;
-    left: -2%;
-    width: 105%;
-    height: 105%;
+    left: -5%;
+    width: 110%;
+    height: 105%; */
     background: linear-gradient(0deg,
             transparent,
             transparent 30%,
             rgba(255, 255, 255, 0.3));
-    transform: rotate(-15deg);
+    /* transform: rotate(-15deg); */
     transition: all 0.5s ease;
     opacity: 0;
-
 }
 
 .item-container:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .item-container:hover::before {
     opacity: 1;
-    transform: rotate(-15deg) translateY(5%);
+    transform: translateY(5%);
 }
 
 .item-container {
@@ -91,6 +95,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* transform: scale(1.05); */
+    box-shadow: rgb(0 0 0) 12px 11px 12px -10px;
+    border-radius: 5px;
 }
 
 .item-background {
@@ -115,9 +122,9 @@
     background-image: url(/assets/shop/gun/card_weapon_3.png);
 }
 
-/* .item-background-4 {
+.item-background-4 {
     background-image: url(/assets/shop/gun/card_weapon_4.png);
-} */
+}
 
 .paper-texture {
     background-position: 0 0;
@@ -131,16 +138,19 @@
     z-index: 1;
     width: 100%;
     height: 100%;
+    border-radius: 5px;
 }
 
 .texture-1 {
     background-image: url(/assets/shop/gun/shopitem_papertexture01.png);
-
 }
 
 .texture-2 {
     background-image: url(/assets/shop/gun/shopitem_papertexture02.png);
+}
 
+.texture-3 {
+    background-image: url(/assets/shop/gun/shopitem_papertexture03.png);
 }
 
 .paper-wear {
@@ -163,6 +173,14 @@
 
 .wear-2 {
     background-image: url(/assets/shop/gun/shopitem_paperwear02.png);
+}
+
+.wear-3 {
+    background-image: url(/assets/shop/gun/shopitem_paperwear03.png);
+}
+
+.wear-4 {
+    background-image: url(/assets/shop/gun/shopitem_paperwear04.png);
 }
 
 .item-image-container {
@@ -194,15 +212,26 @@
     height: 40%;
     font-size: smaller;
     text-align: center;
-    color: black !important;
+    color: black;
     padding: 1px;
     box-sizing: border-box;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
 }
 
 .red {
     border: red solid 2px;
+}
+
+
+.item-info {
+    width: 20%;
+    position: fixed;
+    border: red solid 1px;
+    height: 50%;
+    background-color: white;
+    z-index: 10;
 }
