@@ -30,9 +30,7 @@
         }
     </div>
     <div class="items-container" [ngSwitch]="activeTab">
-        <div class="shop-explorer" *ngSwitchCase="'shopExplorer'">
-
-        </div>
+        <div class="shop-explorer" *ngSwitchCase="'shopExplorer'"></div>
         <app-shop-gun class="shop-container" *ngSwitchCase="'shopGun'"> </app-shop-gun>
         <app-shop-vitality class="shop-container" *ngSwitchCase="'shopVitality'"> </app-shop-vitality>
         <app-shop-tech class="shop-container" *ngSwitchCase="'shopTech'"> </app-shop-tech>

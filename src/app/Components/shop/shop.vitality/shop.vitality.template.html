@@ -1,18 +1,126 @@
-<div class="shop-vitality">
-    <div class="item-tier-1">
+<div class="shop vitality">
+    <!-- tier 1 -->
+    <div class="item-tier-1 tier-container">
+        @if (isLoading[1]) {
+        <p>Cargando items...</p>
+        } @else if (!tierItemsMap[1]) {
+        <p>Inicializando...</p>
+        } @else if (tierItemsMap[1].length === 0) {
+        <p>No hay items disponibles</p>
+        } @else {
+        @for (item of tierItemsMap[1]; track item.id) {
+        <div class="item-container" (mouseenter)="showItemInfo(item, $event)" (mouseleave)="hideItemInfo()">
+            <div class="item-background item-background-1"></div>
+            <div class="paper-texture texture-1"></div>
+            <div class="paper-wear wear-1"></div>
+            <div class="item-image-container">
+                <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
+                <span class="item-title">{{item.name}}</span>
+            </div>
+        </div>
+        }
+        }
+    </div>
+    <!-- tier 2 -->
+
+    <div class="item-tier-2 tier-container">
+
+        @if (isLoading[2]) {
+        <p>Cargando items...</p>
+        } @else if (!tierItemsMap[2]) {
+        <p>Inicializando...</p>
+        } @else if (tierItemsMap[2].length === 0) {
+        <p>No hay items disponibles</p>
+        } @else {
+        @for (item of tierItemsMap[2]; track item.id) {
+        <div class="item-container" (mouseenter)="showItemInfo(item, $event)" (mouseleave)="hideItemInfo()">
+            <div class="item-background item-background-2"></div>
+            <div class="paper-texture texture-2"></div>
+            <div class="paper-wear wear-2"></div>
+            <div class="item-image-container">
+                <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
+                <span class="item-title">{{item.name}}</span>
+            </div>
+        </div>
+        }
+        }
 
     </div>
-    <div class="item-tier-2">
+    <!-- tier 3 -->
+    <div class="item-tier-3 tier-container">
+
+        @if (isLoading[3]) {
+        <p>Cargando items...</p>
+        } @else if (!tierItemsMap[3]) {
+        <p>Inicializando...</p>
+        } @else if (tierItemsMap[3].length === 0) {
+        <p>No hay items disponibles</p>
+        } @else {
+        @for (item of tierItemsMap[3]; track item.id) {
+        <div class="item-container" (mouseenter)="showItemInfo(item, $event)" (mouseleave)="hideItemInfo()">
+            <div class="item-background item-background-3"></div>
+            <div class="paper-texture texture-3"></div>
+            <div class="paper-wear wear-3"></div>
+            <div class="item-image-container">
+                <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
+                <div class="item-title">
+                    {{item.name}}
+                </div>
+                <!-- <span class="item-title">{{item.name}}</span> -->
+            </div>
+        </div>
+        }
+        }
+
+    </div>
+    <!-- tier 4 -->
+
+    <div class="item-tier-4 tier-container">
+
+        @if (isLoading[4]) {
+        <p>Cargando items...</p>
+        } @else if (!tierItemsMap[4]) {
+        <p>Inicializando...</p>
+        } @else if (tierItemsMap[4].length === 0) {
+        <p>No hay items disponibles</p>
+        } @else {
+        @for (item of tierItemsMap[4]; track item.id) {
+        <div class="item-container" (mouseenter)="showItemInfo(item, $event)" (mouseleave)="hideItemInfo()">
+            <div class="item-background item-background-4"></div>
+            <div class="paper-texture texture-3"></div>
+            <div class="paper-wear wear-4"></div>
+            <div class="item-image-container">
+                <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
+                <span class="item-title" style="color: white;">{{item.name}}</span>
+            </div>
+        </div>
+        }
+        }
 
     </div>
 
-    <div class="item-tier-3">
+    @if (hoveredItem) {
+    <div class="item-card-tooltip" [style.left.px]="cardPosition.x" [style.top.px]="cardPosition.y">
+        <div class="card-header">
+            <h3>{{hoveredItem.name}}</h3>
 
+           
+            <span class="item-price"> <img src="/assets/shop/icon_soul.svg" alt="" style="width: 5%;"> {{hoveredItem.cost}}</span>
+        </div>
+        <div class="card-stats">
+            <div class="stat-row" *ngIf="hoveredItem.melee_resist">
+                <span class="stat-label">Melee Resist:</span>
+                <span class="stat-value">+{{hoveredItem.melee_resist}}%</span>
+            </div>
+            <div class="stat-row" *ngIf="hoveredItem.weapon_damage">
+                <span class="stat-label">Weapon Damage:</span>
+                <span class="stat-value">+{{hoveredItem.weapon_damage}}%</span>
+            </div>
+        </div>
+        <div class="card-description" *ngIf="getUpgradeItems(hoveredItem).length > 0">
+            {{this.upgradeItems}}
+        </div>
     </div>
-
-
-    <div class="item-tier-4">
-
-    </div>
+    }
 
 </div>

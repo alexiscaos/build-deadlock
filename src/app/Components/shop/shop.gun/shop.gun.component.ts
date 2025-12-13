@@ -15,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 export class ShopGun {
   private type: string = "weapon";
   public tierItemsMap: { [key: number]: any[] } = {};
-  public isLoading: { [key: number]: boolean } = {};
+  public isLoading: { [key: number]: boolean } = {};  
+  public items: any[] = [];
+  public upgradeItems: any[] = [];
   hoveredItem: any = null;
   cardPosition = { x: 0, y: 0 };
   constructor(
@@ -25,52 +27,56 @@ export class ShopGun {
 
   ngOnInit() {
     console.log("ShopGun inicializado");
-    this.loadItemsForTier(1);
-    this.loadItemsForTier(2);
-    this.loadItemsForTier(3);
-    this.loadItemsForTier(4);
+    this.getItems();
+  }
+
+  public getItems() {
+    console.log("Cargando items de tipo arma...");
+
+    this.itemService.getItemsByType(this.type).subscribe({
+      next: (data: any[]) => {
+        this.items = data;
+        this.cdr.detectChanges();
+        this.loadItemsForTier(1);
+        this.loadItemsForTier(2);
+        this.loadItemsForTier(3);
+        this.loadItemsForTier(4);
+      },
+      error: (error) => {
+        console.error("Error al cargar los items de tipo arma", error);
+      }
+    });
+
   }
 
   public loadItemsForTier(tier: number) {
     this.isLoading[tier] = true;
+    this.tierItemsMap[tier] = this.itemService.loadItemsForTier(this.items, tier);
+    this.isLoading[tier] = false;
+    this.cdr.detectChanges();
 
-    this.itemService.getItems(this.type, tier).subscribe({
-      next: (response) => {
+  }
 
-        if (!Array.isArray(response)) {
-          console.error("Error: response no es un array");
-          this.tierItemsMap[tier] = [];
-          this.isLoading[tier] = false;
-          return;
-        }
-
-        this.tierItemsMap[tier] = response
-          .filter(item => item.item_tier === tier && item.shopable === true)
-          .sort((a, b) => a.name.localeCompare(b.name));
-
-        this.isLoading[tier] = false;
-        this.cdr.detectChanges();
-      },
-      error: (error) => {
-        console.error(`Error cargando items para tier ${tier}:`, error);
-        this.tierItemsMap[tier] = [];
-        this.isLoading[tier] = false;
-        this.cdr.detectChanges();
-      }
+  public getUpgradeItems(item: any): any[] {
+    console.log('Getting upgrade items for', item.name, item.component_items);
+    this.upgradeItems = this.items.filter(i => {
+      console.log(i); i.component_items.includes(i.class_name)
     });
+    console.log('Upgrade items for', item.name, this.upgradeItems);
+    return this.upgradeItems;
   }
 
-  showItemInfo(item:any, event: MouseEvent){
+  showItemInfo(item: any, event: MouseEvent) {
     this.hoveredItem = item;
-        
-        const offset = 20; 
-        this.cardPosition = {
-            x: event.clientX + offset,
-            y: event.clientY + offset
-        };
+
+    const offset = 20;
+    this.cardPosition = {
+      x: event.clientX + offset,
+      y: event.clientY + offset
+    };
   }
 
-  hideItemInfo(){
+  hideItemInfo() {
     this.hoveredItem = null;
   }
 

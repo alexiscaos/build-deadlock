@@ -1,4 +1,4 @@
-<div class="shop-gun">
+<div class="shop gun">
     <!-- tier 1 -->
     <div class="item-tier-1 tier-container">
         @if (isLoading[1]) {
@@ -116,9 +116,9 @@
                 <span class="stat-label">Weapon Damage:</span>
                 <span class="stat-value">+{{hoveredItem.weapon_damage}}%</span>
             </div>
-ç        </div>
-        <div class="card-description" *ngIf="hoveredItem.description">
-            {{hoveredItem.description}}
+        </div>
+        <div class="card-description" *ngIf="getUpgradeItems(hoveredItem).length > 0">
+            {{this.upgradeItems}}
         </div>
     </div>
     }

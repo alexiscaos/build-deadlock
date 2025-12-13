@@ -1,0 +1,315 @@
+    {
+        "id": 2108215830,
+        "class_name": "upgrade_dps_aura",
+        "name": "Heroic Aura",
+        "start_trained": true,
+        "image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/bullet_damage_aura.png",
+        "image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/bullet_damage_aura.webp",
+        "heroes": [],
+        "properties": {
+            "AbilityCastDelay": {
+                "value": "0",
+                "can_set_token_override": true,
+                "css_class": "cast",
+                "disable_value": "0",
+                "label": "Cast Delay",
+                "postfix": "s",
+                "postvalue_label": "Cast Delay",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+            },
+            "AbilityCastRange": {
+                "value": "0",
+                "can_set_token_override": true,
+                "css_class": "range",
+                "display_units": "EDisplayUnit_Meters",
+                "scale_function": {
+                    "class_name": "scale_function_single_stat",
+                    "subclass_name": "AbilityCastRange_scale_function",
+                    "specific_stat_scale_type": "ETechRange"
+                },
+                "label": "Cast Range",
+                "postfix": "m",
+                "postvalue_label": "Cast Range",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/property_range.svg"
+            },
+            "AbilityChannelTime": {
+                "value": "0",
+                "can_set_token_override": true,
+                "css_class": "cast",
+                "disable_value": "0",
+                "scale_function": {
+                    "class_name": "scale_function_multi_stats",
+                    "subclass_name": "scale_duration",
+                    "scaling_stats": [
+                        "EChannelDuration",
+                        "ETechDuration"
+                    ]
+                },
+                "label": "Channel Duration",
+                "postfix": "s",
+                "postvalue_label": "Channel Duration",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+            },
+            "AbilityCharges": {
+                "value": "0",
+                "can_set_token_override": true,
+                "css_class": "cast",
+                "disable_value": "0",
+                "scale_function": {
+                    "class_name": "scale_function_single_stat",
+                    "subclass_name": "AbilityCharges_scale_function",
+                    "specific_stat_scale_type": "EMaxChargesIncrease"
+                },
+                "label": "Charges",
+                "postvalue_label": "Charges",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+            },
+            "AbilityCooldown": {
+                "value": 25.0,
+                "can_set_token_override": true,
+                "css_class": "cooldown",
+                "disable_value": "0",
+                "scale_function": {
+                    "class_name": "scale_function_single_stat",
+                    "subclass_name": "AbilityCooldown_scale_function",
+                    "specific_stat_scale_type": "EItemCooldown"
+                },
+                "label": "Cooldown",
+                "postfix": "s",
+                "postvalue_label": "Cooldown",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/cooldown.svg",
+                "tooltip_section": "active",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": false
+            },
+            "AbilityCooldownBetweenCharge": {
+                "value": "0",
+                "can_set_token_override": true,
+                "css_class": "charge_cooldown",
+                "disable_value": "0",
+                "scale_function": {
+                    "class_name": "scale_function_single_stat",
+                    "subclass_name": "AbilityCooldownBetweenCharge_scale_function",
+                    "specific_stat_scale_type": "ETechCooldownBetweenChargeUses"
+                },
+                "label": "Charge Delay",
+                "postfix": "s",
+                "postvalue_label": "Charge Delay",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/recharge.svg"
+            },
+            "AbilityDuration": {
+                "value": "7",
+                "can_set_token_override": true,
+                "css_class": "duration",
+                "disable_value": "0",
+                "scale_function": {
+                    "class_name": "scale_function_single_stat",
+                    "subclass_name": "AbilityDuration_scale_function",
+                    "specific_stat_scale_type": "ETechDuration"
+                },
+                "label": "Duration",
+                "postfix": "s",
+                "postvalue_label": "Duration",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/duration.svg",
+                "tooltip_section": "active",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": false
+            },
+            "AbilityPostCastDuration": {
+                "value": "0",
+                "disable_value": "0"
+            },
+            "AbilityResourceCost": {
+                "value": "0",
+                "can_set_token_override": true,
+                "css_class": "cast",
+                "disable_value": "0",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_cast.png"
+            },
+            "AbilityUnitTargetLimit": {
+                "value": "1",
+                "can_set_token_override": true
+            },
+            "ActiveBonusMoveSpeed": {
+                "value": "2.5m",
+                "provided_property_type": "MODIFIER_VALUE_MOVEMENT_SPEED_MAX",
+                "css_class": "move_speed",
+                "usage_flags": [
+                    "ConditionallyApplied"
+                ],
+                "prefix": "{s:sign}",
+                "label": "Move Speed",
+                "postfix": "m/s",
+                "postvalue_label": "Move Speed",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/move_speed.svg",
+                "tooltip_section": "active",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": true
+            },
+            "ActiveRadius": {
+                "value": "30m",
+                "css_class": "distance",
+                "scale_function": {
+                    "class_name": "scale_function_single_stat",
+                    "subclass_name": "ActiveRadius_scale_function",
+                    "specific_stat_scale_type": "ETechRange"
+                },
+                "label": "Active Radius",
+                "postfix": "m",
+                "postvalue_label": "Active Radius",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/range.svg",
+                "tooltip_section": "active",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": false
+            },
+            "BonusFireRate": {
+                "value": "30",
+                "provided_property_type": "MODIFIER_VALUE_FIRE_RATE",
+                "css_class": "fire_rate",
+                "usage_flags": [
+                    "ConditionallyApplied"
+                ],
+                "prefix": "{s:sign}",
+                "label": "Fire Rate",
+                "postfix": "%",
+                "postvalue_label": "Fire Rate",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/fire_rate.svg",
+                "tooltip_section": "active",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": true
+            },
+            "BonusSprintSpeed": {
+                "value": "2m",
+                "provided_property_type": "MODIFIER_VALUE_SPRINT_SPEED_BONUS",
+                "css_class": "move_speed",
+                "prefix": "{s:sign}",
+                "label": "Sprint Speed",
+                "postfix": "m/s",
+                "postvalue_label": "Sprint Speed",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/move_speed.svg",
+                "tooltip_section": "innate",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": false
+            },
+            "BulletResist": {
+                "value": "15",
+                "provided_property_type": "MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST",
+                "css_class": "bullet_armor_up",
+                "prefix": "{s:sign}",
+                "label": "Bullet Resist",
+                "postfix": "%",
+                "postvalue_label": "Bullet Resist",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/armor_bullet_color.svg",
+                "tooltip_section": "passive",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": true
+            },
+            "ChannelMoveSpeed": {
+                "value": "-1",
+                "can_set_token_override": true,
+                "css_class": "move_speed",
+                "display_units": "EDisplayUnit_MetersPerSecond",
+                "postfix": "m/s",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/move_speed.svg"
+            },
+            "NonHeroMult": {
+                "value": "2"
+            },
+            "Radius": {
+                "value": "30m",
+                "css_class": "distance",
+                "scale_function": {
+                    "class_name": "scale_function_single_stat",
+                    "subclass_name": "Radius_scale_function",
+                    "specific_stat_scale_type": "ETechRange"
+                },
+                "label": "Radius",
+                "postfix": "m",
+                "postvalue_label": "Radius",
+                "icon": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/range.svg",
+                "tooltip_section": "passive",
+                "tooltip_is_elevated": false,
+                "tooltip_is_important": false
+            },
+            "TechPower": {
+                "value": "0",
+                "can_set_token_override": true,
+                "provided_property_type": "MODIFIER_VALUE_TECH_POWER",
+                "disable_value": "0",
+                "prefix": "{s:sign}",
+                "label": "Spirit Power",
+                "postfix": "",
+                "postvalue_label": "Spirit Power"
+            },
+            "WeaponPower": {
+                "value": "0",
+                "can_set_token_override": true,
+                "provided_property_type": "MODIFIER_VALUE_WEAPON_POWER",
+                "disable_value": "0",
+                "prefix": "{s:sign}",
+                "label": "Weapon Damage",
+                "postfix": "%",
+                "postvalue_label": "Weapon Damage"
+            }
+        },
+        "weapon_info": {},
+        "type": "upgrade",
+        "shop_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.png",
+        "shop_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp",
+        "shop_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura_sm.png",
+        "shop_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura_sm.webp",
+        "item_slot_type": "weapon",
+        "item_tier": 3,
+        "description": {
+            "desc": "Provides <span class=\"highlight\">Bullet Resist</span> to nearby friendly units.",
+            "active": "Provides <span class=\"highlight\"><svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"#0F9\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M81.5143 72.4711L117.08 34.3552L68.8057 2L57.0343 31.8506L11 87.2257L34.7257 103.141L43.3657 96.9254L58.4286 118.989L83.2514 124.977L108.646 125L114.269 116.666L95.96 103.665L81.5143 72.4711Z\" fill=\"#0F9\"/>\n</svg>\n<span class=\"inline-attribute-label MoveSpeed\" style=\"color: #0F9;\">move speed</span></span> and <span class=\"highlight\"><svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"#EC9719\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M78.6699 83C98.9999 83 103 91 103 91C103 91 98.9999 99 78.6699 99H51V83H78.6699ZM45.4199 88.5C46.5245 88.5 47.4199 89.3954 47.4199 90.5C47.4199 91.6046 46.5245 92.5 45.4199 92.5H13.4199C12.3154 92.5 11.4199 91.6046 11.4199 90.5C11.4199 89.3954 12.3154 88.5 13.4199 88.5H45.4199ZM98.6699 56C119 56 123 64 123 64C123 64 119 72 98.6699 72H71V56H98.6699ZM65 61.5C66.1046 61.5 67 62.3954 67 63.5C67 64.6046 66.1046 65.5 65 65.5H13C11.8954 65.5 11 64.6046 11 63.5C11 62.3954 11.8954 61.5 13 61.5H65ZM78.6699 29C98.9999 29 103 37 103 37C103 37 98.9999 45 78.6699 45H51V29H78.6699ZM45 35C46.1046 35 47 35.8954 47 37C47 38.1046 46.1046 39 45 39H13C11.8954 39 11 38.1046 11 37C11 35.8954 11.8954 35 13 35H45Z\" fill=\"#EC9719\"/>\n</svg>\n<span class=\"inline-attribute-label FireRate\" style=\"color: #EC9719;\">fire rate</span></span> to you and nearby allies. <span class=\"highlight\">Minions</span> get double value."
+        },
+        "activation": "instant_cast",
+        "tooltip_sections": [
+            {
+                "section_type": "innate",
+                "section_attributes": [
+                    {
+                        "properties": [
+                            "BonusSprintSpeed"
+                        ]
+                    }
+                ]
+            },
+            {
+                "section_type": "passive",
+                "section_attributes": [
+                    {
+                        "loc_string": "Provides <span class=\"highlight\">Bullet Resist</span> to nearby friendly units.",
+                        "properties": [
+                            "Radius"
+                        ],
+                        "elevated_properties": [],
+                        "important_properties": [
+                            "BulletResist"
+                        ]
+                    }
+                ]
+            },
+            {
+                "section_type": "active",
+                "section_attributes": [
+                    {
+                        "loc_string": "Provides <span class=\"highlight\"><svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"#0F9\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M81.5143 72.4711L117.08 34.3552L68.8057 2L57.0343 31.8506L11 87.2257L34.7257 103.141L43.3657 96.9254L58.4286 118.989L83.2514 124.977L108.646 125L114.269 116.666L95.96 103.665L81.5143 72.4711Z\" fill=\"#0F9\"/>\n</svg>\n<span class=\"inline-attribute-label MoveSpeed\" style=\"color: #0F9;\">move speed</span></span> and <span class=\"highlight\"><svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"#EC9719\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M78.6699 83C98.9999 83 103 91 103 91C103 91 98.9999 99 78.6699 99H51V83H78.6699ZM45.4199 88.5C46.5245 88.5 47.4199 89.3954 47.4199 90.5C47.4199 91.6046 46.5245 92.5 45.4199 92.5H13.4199C12.3154 92.5 11.4199 91.6046 11.4199 90.5C11.4199 89.3954 12.3154 88.5 13.4199 88.5H45.4199ZM98.6699 56C119 56 123 64 123 64C123 64 119 72 98.6699 72H71V56H98.6699ZM65 61.5C66.1046 61.5 67 62.3954 67 63.5C67 64.6046 66.1046 65.5 65 65.5H13C11.8954 65.5 11 64.6046 11 63.5C11 62.3954 11.8954 61.5 13 61.5H65ZM78.6699 29C98.9999 29 103 37 103 37C103 37 98.9999 45 78.6699 45H51V29H78.6699ZM45 35C46.1046 35 47 35.8954 47 37C47 38.1046 46.1046 39 45 39H13C11.8954 39 11 38.1046 11 37C11 35.8954 11.8954 35 13 35H45Z\" fill=\"#EC9719\"/>\n</svg>\n<span class=\"inline-attribute-label FireRate\" style=\"color: #EC9719;\">fire rate</span></span> to you and nearby allies. <span class=\"highlight\">Minions</span> get double value.",
+                        "properties": [
+                            "ActiveRadius",
+                            "AbilityDuration",
+                            "AbilityCooldown"
+                        ],
+                        "important_properties": [
+                            "ActiveBonusMoveSpeed",
+                            "BonusFireRate"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "is_active_item": true,
+        "shopable": true,
+        "cost": 3200
+    },

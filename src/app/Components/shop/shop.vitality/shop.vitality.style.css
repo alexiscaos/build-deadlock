@@ -1,6 +1,5 @@
 .shop-vitality {
 
-    background-image: url('/assets/shop/vitality/shop_bg_vitality.png');
     aspect-ratio: 1825 / 1618;
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -20,29 +19,66 @@
     gap: 2%;
 }
 
+.vitality {
+    background-image: url('/assets/shop/vitality/shop_bg_vitality.png');
+
+}
+
 .item-tier-1 {
-    border: red solid 1px;
-    width: 45%;
-    height: 42%;
-    margin-top: 5%;
+    width: 46%;
+    height: 49%;
+    padding-top: 17%;
+    padding-left: 5%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 
 .item-tier-2 {
-    border: green solid 1px;
-    width: 52%;
-    height: 48%;    
+    width: 53%;
+    height: 50%;
+    grid-template-columns: repeat(6, 1fr);
+    padding-top: 6%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-right: 4%;
 }
 
 .item-tier-3 {
-border: white solid 2px;
-    width: 44%;
-    height: 52%;
+    width: 46%;
+    height: 50%;
+    grid-template-columns: repeat(5, 1fr);
+    padding-top: 7%;
+    padding-left: 4%;
+    padding-right: 3%;
+    padding-bottom: 4%;
 }
 
 
 .item-tier-4 {
-border: blue solid 1px;
     width: 53%;
-    height: 52%;
+    height: 50%;
+    grid-template-columns: repeat(6, 1fr);
+    padding-top: 6%;
+    padding-left: 5%;
+    padding-bottom: 4%;
+    padding-right: 2%;
+}
+
+
+.item-background-1 {
+    background-image: url(/assets/shop/vitality/card_vitality_1.png);
+}
+
+.item-background-2 {
+    background-image: url(/assets/shop/vitality/card_vitality_2.png);
+}
+
+.item-background-3 {
+    background-image: url(/assets/shop/vitality/card_vitality_3.png);
+}
+
+.item-background-4 {
+    background-image: url(/assets/shop/vitality/card_vitality_4.png);
 }
