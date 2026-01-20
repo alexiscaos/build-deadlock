@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ItemService } from '../../../service/shop.service/items.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonService } from '../../../service/common.service';
 
 @Component({
   selector: 'app-shop-vitality',
@@ -10,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './shop.vitality.style.css',
   standalone: true,
 })
-export class ShopVitality {
+export class ShopVitality implements OnInit {
+  @Input() allItems: any[] = [];
   private type: string = "vitality";
   public tierItemsMap: { [key: number]: any[] } = {};
   public isLoading: { [key: number]: boolean } = {};
@@ -20,37 +22,31 @@ export class ShopVitality {
   cardPosition = { x: 0, y: 0 };
   constructor(
     private itemService: ItemService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private commonService: CommonService
   ) { }
-
   ngOnInit() {
-    console.log("ShopVitality inicializado");
-    this.getItems();
+    console.log("ShopGun inicializado");
+    if (this.allItems && this.allItems.length > 0) {
+      this.getItems();
+    } else {
+
+    }
   }
 
   public getItems() {
-    console.log("Cargando items de tipo vitalidad...");
-
-    this.itemService.getItemsByType(this.type).subscribe({
-      next: (data: any[]) => {
-        this.items = data;
-        console.log("Items de tipo vitalidad cargados", this.items);
-        this.cdr.detectChanges();
-        this.loadItemsForTier(1);
-        this.loadItemsForTier(2);
-        this.loadItemsForTier(3);
-        this.loadItemsForTier(4);
-      },
-      error: (error) => {
-        console.error("Error al cargar los items de tipo arma", error);
-      }
-    });
+    this.items = this.commonService.getItemsByType(this.allItems, this.type);
+    this.cdr.detectChanges();
+    this.loadItemsForTier(1);
+    this.loadItemsForTier(2);
+    this.loadItemsForTier(3);
+    this.loadItemsForTier(4);
 
   }
 
   public loadItemsForTier(tier: number) {
     this.isLoading[tier] = true;
-    this.tierItemsMap[tier] = this.itemService.loadItemsForTier(this.items, tier);
+    this.tierItemsMap[tier] = this.commonService.loadItemsForTier(this.items, tier);
     this.isLoading[tier] = false;
     this.cdr.detectChanges();
 

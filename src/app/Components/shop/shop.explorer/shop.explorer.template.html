@@ -31,9 +31,9 @@
     </div>
     <div class="items-container" [ngSwitch]="activeTab">
         <div class="shop-explorer" *ngSwitchCase="'shopExplorer'"></div>
-        <app-shop-gun class="shop-container" *ngSwitchCase="'shopGun'"> </app-shop-gun>
-        <app-shop-vitality class="shop-container" *ngSwitchCase="'shopVitality'"> </app-shop-vitality>
-        <app-shop-tech class="shop-container" *ngSwitchCase="'shopTech'"> </app-shop-tech>
+        <app-shop-gun class="shop-container" *ngSwitchCase="'shopGun'" [allItems]="allItems"></app-shop-gun>
+        <app-shop-vitality class="shop-container" *ngSwitchCase="'shopVitality'" [allItems]="allItems"></app-shop-vitality>
+        <app-shop-tech class="shop-container" *ngSwitchCase="'shopTech'" [allItems]="allItems"></app-shop-tech>
     </div>
 
 </div>

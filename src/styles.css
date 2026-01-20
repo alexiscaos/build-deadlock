@@ -150,15 +150,15 @@
   }
 
   .texture-1 {
-    background-image: url(/assets/shop/gun/shopitem_papertexture01.png);
+    background-image: url(/assets/shop/shopitem_papertexture01.png);
   }
 
   .texture-2 {
-    background-image: url(/assets/shop/gun/shopitem_papertexture02.png);
+    background-image: url(/assets/shop/shopitem_papertexture02.png);
   }
 
   .texture-3 {
-    background-image: url(/assets/shop/gun/shopitem_papertexture03.png);
+    background-image: url(/assets/shop/shopitem_papertexture03.png);
   }
 
   .paper-wear {
@@ -189,4 +189,85 @@
 
   .wear-4 {
     background-image: url(/assets/shop/shopitem_paperwear04.png);
+  }
+
+
+  .passive {
+    color: white;
+    background-color: #0000003b;
+    /* padding: 5px; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 2rem;
+    position: relative;
+
+  }
+
+  .passive-title {
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    margin-left: 5px;
+
+  }
+
+  .abilityCooldown {
+    align-items: center;
+    display: flex;
+    width: 20%;
+    flex-direction: row-reverse;
+    padding-right: 5%;
+    background-color: rgba(0, 0, 0, 0.788);
+  }
+
+  .cooldownIcon {
+    width: 20px;
+    margin-right: 5px;
+  }
+
+  .highlight {
+    font-weight: bolder;
+    color: white;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .passive_description {
+    margin-top: 2%;
+    padding: 2%;
+    color: rgb(215, 215, 215);
+  }
+
+  .sectionPassive {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    padding: 3%;
+    background-color: #0000003b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+
+  }
+
+  .upgrade {
+
+    background-color: #0000003b;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 2%;
+    margin-bottom: 0%;
+    margin-top:3%;
+
+  }
+
+  .upgrade-image {
+    height: auto;
+    width: 15%;
   }

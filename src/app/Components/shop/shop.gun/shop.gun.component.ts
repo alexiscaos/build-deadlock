@@ -1,7 +1,9 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ItemService } from '../../../service/shop.service/items.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonService } from '../../../service/common.service';
+
 
 @Component({
   selector: 'app-shop-gun',
@@ -12,63 +14,94 @@ import { HttpClientModule } from '@angular/common/http';
 })
 
 
-export class ShopGun {
+export class ShopGun implements OnInit {
+  @Input() allItems: any[] = [];
   private type: string = "weapon";
   public tierItemsMap: { [key: number]: any[] } = {};
-  public isLoading: { [key: number]: boolean } = {};  
+  public isLoading: { [key: number]: boolean } = {};
   public items: any[] = [];
-  public upgradeItems: any[] = [];
+  public upgradeToItems: any[] = [];
+  public upgradeFromItems: any[] = [];
+
+  public tooltipSections: any[] = [];
+  public item: any = null;
   hoveredItem: any = null;
   cardPosition = { x: 0, y: 0 };
   constructor(
     private itemService: ItemService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private commonService: CommonService
   ) { }
-
   ngOnInit() {
     console.log("ShopGun inicializado");
-    this.getItems();
+    if (this.allItems && this.allItems.length > 0) {
+      this.getItems();
+    } else {
+
+    }
   }
 
   public getItems() {
-    console.log("Cargando items de tipo arma...");
-
-    this.itemService.getItemsByType(this.type).subscribe({
-      next: (data: any[]) => {
-        this.items = data;
-        this.cdr.detectChanges();
-        this.loadItemsForTier(1);
-        this.loadItemsForTier(2);
-        this.loadItemsForTier(3);
-        this.loadItemsForTier(4);
-      },
-      error: (error) => {
-        console.error("Error al cargar los items de tipo arma", error);
-      }
-    });
+    this.items = this.commonService.getItemsByType(this.allItems, this.type);
+    this.cdr.detectChanges();
+    this.loadItemsForTier(1);
+    this.loadItemsForTier(2);
+    this.loadItemsForTier(3);
+    this.loadItemsForTier(4);
 
   }
 
   public loadItemsForTier(tier: number) {
     this.isLoading[tier] = true;
-    this.tierItemsMap[tier] = this.itemService.loadItemsForTier(this.items, tier);
+    this.tierItemsMap[tier] = this.commonService.loadItemsForTier(this.items, tier);
+    // this.item = this.tierItemsMap[1][2];
+    // this.tooltipSections = this.item.tooltip_sections;
     this.isLoading[tier] = false;
     this.cdr.detectChanges();
 
+
   }
 
-  public getUpgradeItems(item: any): any[] {
-    console.log('Getting upgrade items for', item.name, item.component_items);
-    this.upgradeItems = this.items.filter(i => {
-      console.log(i); i.component_items.includes(i.class_name)
+  public getUpgradeToItems(item: any): any[] {
+    if (!item || !item.class_name) return [];
+
+    this.upgradeToItems = this.allItems.filter(i => {
+      console.log('Checking item for upgrade:', i);
+      return i.component_items &&
+        Array.isArray(i.component_items) &&
+        i.component_items.includes(item.class_name);
     });
-    console.log('Upgrade items for', item.name, this.upgradeItems);
-    return this.upgradeItems;
+    console.log('Found upgrade to item:', this.upgradeToItems);
+
+    return this.upgradeToItems;
+  }
+
+  public getUpgradeFromItems(item: any): any[] {
+    if (!item || !item.class_name) return [];
+    if ("component_items" in item) {
+      this.upgradeFromItems = item.component_items;
+
+      for (let i = 0; i < this.upgradeFromItems.length; i++) {
+        const className = this.upgradeFromItems[i];
+        const foundItem = this.allItems.find(it => it.class_name === className);
+        if (foundItem) {
+          this.upgradeFromItems[i] = foundItem;
+          console.log('Found upgrade from item:', foundItem);
+
+        }
+      }
+
+      return this.upgradeFromItems;
+    } else {
+      return [];
+    }
   }
 
   showItemInfo(item: any, event: MouseEvent) {
+    this.getUpgradeToItems(item);
+    this.getUpgradeFromItems(item);
     this.hoveredItem = item;
-
+    this.tooltipSections = this.hoveredItem.tooltip_sections;
     const offset = 20;
     this.cardPosition = {
       x: event.clientX + offset,
@@ -78,6 +111,11 @@ export class ShopGun {
 
   hideItemInfo() {
     this.hoveredItem = null;
+    this.upgradeFromItems = [];
+    this.upgradeToItems = [];
+    this.tooltipSections = [];
+    console.log(this.upgradeFromItems) ;
+    console.log(this.upgradeToItems) ;
   }
 
 }

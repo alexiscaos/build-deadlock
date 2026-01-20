@@ -10,21 +10,12 @@ export class ItemService {
     constructor(private http: HttpClient) { }
 
     getAllItems() {
-        return this.http.get<any>(this.baseUrl);
-    }
-
-    getItemsByType(type: string): Observable<any[]> {
-        return this.http.get<any[]>(`${this.baseUrl}/by-slot-type/${type}`).pipe(
+        return this.http.get<any>(this.baseUrl).pipe(
             map(items => {
-                return items.filter(item => item.shopable === true);
+                return items.filter((item: any) => item.shopable === true);
             })
         );
     }
 
-    loadItemsForTier(itemsTier: any[], tier: number) {
-        return itemsTier
-            .filter(item => item.item_tier === tier)
-            .sort((a, b) => a.name.localeCompare(b.name));
-    }
 
 }

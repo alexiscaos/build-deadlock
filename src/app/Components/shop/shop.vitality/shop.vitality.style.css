@@ -50,8 +50,8 @@
     height: 50%;
     grid-template-columns: repeat(5, 1fr);
     padding-top: 7%;
-    padding-left: 4%;
-    padding-right: 3%;
+    padding-left: 5%;
+    padding-right: 2%;
     padding-bottom: 4%;
 }
 
@@ -61,9 +61,9 @@
     height: 50%;
     grid-template-columns: repeat(6, 1fr);
     padding-top: 6%;
-    padding-left: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
     padding-bottom: 4%;
-    padding-right: 2%;
 }
 
 
