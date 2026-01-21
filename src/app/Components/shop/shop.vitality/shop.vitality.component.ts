@@ -17,14 +17,20 @@ export class ShopVitality implements OnInit {
   public tierItemsMap: { [key: number]: any[] } = {};
   public isLoading: { [key: number]: boolean } = {};
   public items: any[] = [];
-  public upgradeItems: any[] = [];
+  public upgradeToItems: any[] = [];
+  public upgradeFromItems: any[] = [];
+
+  public tooltipSections: any[] = [];
+  public item: any = null;
   hoveredItem: any = null;
   cardPosition = { x: 0, y: 0 };
+  
   constructor(
     private itemService: ItemService,
     private cdr: ChangeDetectorRef,
     private commonService: CommonService
   ) { }
+
   ngOnInit() {
     console.log("ShopGun inicializado");
     if (this.allItems && this.allItems.length > 0) {
@@ -52,27 +58,74 @@ export class ShopVitality implements OnInit {
 
   }
 
-  public getUpgradeItems(item: any): any[] {
-    console.log('Getting upgrade items for', item.name, item.component_items);
-    this.upgradeItems = this.items.filter(i => {
-      console.log(i); i.component_items.includes(i.class_name)
+  public getUpgradeFromItems(item: any): any[] {
+    if (!item || !item.class_name) return [];
+    if ("component_items" in item) {
+      const upgradeFromItems = item.component_items.map((className: string) => {
+        const foundItem = this.allItems.find(it => it.class_name === className);
+        if (foundItem) {
+          console.log('Found upgrade from item:', foundItem);
+          return foundItem;
+        }
+        return null;
+      }).filter((item: any) => item !== null);
+
+      return upgradeFromItems;
+    } else {
+      return [];
+    }
+  }
+
+  
+  public getUpgradeToItems(item: any): any[] {
+    if (!item || !item.class_name) return [];
+
+    const upgradeToItems = this.allItems.filter(i => {
+      console.log('Checking item for upgrade:', i);
+      return i.component_items &&
+        Array.isArray(i.component_items) &&
+        i.component_items.includes(item.class_name);
     });
-    console.log('Upgrade items for', item.name, this.upgradeItems);
-    return this.upgradeItems;
+    console.log('Found upgrade to item:', upgradeToItems);
+
+    return upgradeToItems;
   }
 
   showItemInfo(item: any, event: MouseEvent) {
+    this.upgradeToItems = this.getUpgradeToItems(item);
+    this.upgradeFromItems = this.getUpgradeFromItems(item);
     this.hoveredItem = item;
+    this.tooltipSections = this.hoveredItem.tooltip_sections;
 
-    const offset = 20;
-    this.cardPosition = {
-      x: event.clientX + offset,
-      y: event.clientY + offset
-    };
+    setTimeout(() => {
+      const offset = 20;
+      let x = event.clientX + offset;
+      let y = event.clientY + offset;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const cardElement = document.querySelector('.item-card-tooltip') as HTMLElement;
+      const cardWidth = cardElement?.offsetWidth || 400;
+      const cardHeight = cardElement?.offsetHeight || 500;
+      if (x + cardWidth > windowWidth) {
+        x = event.clientX - cardWidth - offset;
+      }
+      if (y + cardHeight > windowHeight) {
+        y = event.clientY - cardHeight - offset;
+      }
+      if (x < 0) x = offset;
+      if (y < 0) y = offset;
+
+      this.cardPosition = { x, y };
+      this.cdr.detectChanges();
+    }, 0);
   }
+
 
   hideItemInfo() {
     this.hoveredItem = null;
+    this.upgradeFromItems = [];
+    this.upgradeToItems = [];
+    this.tooltipSections = [];
   }
 
 }

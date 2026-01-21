@@ -82,3 +82,11 @@
 .item-background-4 {
     background-image: url(/assets/shop/vitality/card_vitality_4.png);
 }
+
+.card-image{
+    background-image: url(/assets/shop/vitality/tooltip_bg_vitality.png);
+}
+
+.card-header-image{
+    background-image: url(/assets/shop/vitality/tooltip_header_vitality.png);
+}

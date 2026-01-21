@@ -8,7 +8,7 @@ import { CommonService } from '../../../service/common.service';
 @Component({
   selector: 'app-shop-gun',
   imports: [CommonModule, HttpClientModule],
-  templateUrl: './shop.gun.template.copy.html',
+  templateUrl: './shop.gun.template.html',
   styleUrl: './shop.gun.style.css',
   standalone: true,
 })
@@ -65,57 +65,70 @@ export class ShopGun implements OnInit {
   public getUpgradeToItems(item: any): any[] {
     if (!item || !item.class_name) return [];
 
-    this.upgradeToItems = this.allItems.filter(i => {
+    const upgradeToItems = this.allItems.filter(i => {
       console.log('Checking item for upgrade:', i);
       return i.component_items &&
         Array.isArray(i.component_items) &&
         i.component_items.includes(item.class_name);
     });
-    console.log('Found upgrade to item:', this.upgradeToItems);
+    console.log('Found upgrade to item:', upgradeToItems);
 
-    return this.upgradeToItems;
+    return upgradeToItems;
   }
 
   public getUpgradeFromItems(item: any): any[] {
     if (!item || !item.class_name) return [];
     if ("component_items" in item) {
-      this.upgradeFromItems = item.component_items;
-
-      for (let i = 0; i < this.upgradeFromItems.length; i++) {
-        const className = this.upgradeFromItems[i];
+      const upgradeFromItems = item.component_items.map((className: string) => {
         const foundItem = this.allItems.find(it => it.class_name === className);
         if (foundItem) {
-          this.upgradeFromItems[i] = foundItem;
           console.log('Found upgrade from item:', foundItem);
-
+          return foundItem;
         }
-      }
+        return null;
+      }).filter((item: any) => item !== null);
 
-      return this.upgradeFromItems;
+      return upgradeFromItems;
     } else {
       return [];
     }
   }
 
   showItemInfo(item: any, event: MouseEvent) {
-    this.getUpgradeToItems(item);
-    this.getUpgradeFromItems(item);
+    this.upgradeToItems = this.getUpgradeToItems(item);
+    this.upgradeFromItems = this.getUpgradeFromItems(item);
     this.hoveredItem = item;
     this.tooltipSections = this.hoveredItem.tooltip_sections;
-    const offset = 20;
-    this.cardPosition = {
-      x: event.clientX + offset,
-      y: event.clientY + offset
-    };
+
+    setTimeout(() => {
+      const offset = 20;
+      let x = event.clientX + offset;
+      let y = event.clientY + offset;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const cardElement = document.querySelector('.item-card-tooltip') as HTMLElement;
+      const cardWidth = cardElement?.offsetWidth || 400;
+      const cardHeight = cardElement?.offsetHeight || 500;
+      if (x + cardWidth > windowWidth) {
+        x = event.clientX - cardWidth - offset;
+      }
+      if (y + cardHeight > windowHeight) {
+        y = event.clientY - cardHeight - offset;
+      }
+      if (x < 0) x = offset;
+      if (y < 0) y = offset;
+
+      this.cardPosition = { x, y };
+      this.cdr.detectChanges();
+    }, 0);
   }
+
 
   hideItemInfo() {
     this.hoveredItem = null;
     this.upgradeFromItems = [];
     this.upgradeToItems = [];
     this.tooltipSections = [];
-    console.log(this.upgradeFromItems) ;
-    console.log(this.upgradeToItems) ;
   }
 
 }

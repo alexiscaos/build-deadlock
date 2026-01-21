@@ -263,11 +263,73 @@
     box-sizing: border-box;
     padding: 2%;
     margin-bottom: 0%;
-    margin-top:3%;
+    margin-top: 3%;
 
   }
 
   .upgrade-image {
     height: auto;
     width: 15%;
+  }
+
+
+  .item-card-tooltip {
+    position: fixed;
+    z-index: 9999;
+    width: 350px;
+    max-width: 400px;
+    height: auto;
+    max-height: 700px;
+    background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    /* Para que no interfiera con el hover */
+    animation: fadeIn 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    padding-bottom: 0%;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+    height: 10%;
+    padding: 3%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-header h3 {
+    margin: 0;
+    color: #FFE4B5;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .item-price {
+    color: #98D8C8;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
   }

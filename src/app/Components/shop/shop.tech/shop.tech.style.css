@@ -82,3 +82,11 @@
 .item-background-4 {
     background-image: url(/assets/shop/tech/card_spirit_4.png);
 }
+
+.card-image{
+    background-image: url(/assets/shop/tech/tooltip_bg_spirit.png);
+}
+
+.card-header-image{
+    background-image: url(/assets/shop/tech/tooltip_header_spirit.png);
+}
