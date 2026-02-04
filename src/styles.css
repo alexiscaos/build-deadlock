@@ -230,8 +230,16 @@
   .highlight {
     font-weight: bolder;
     color: white;
-  }
 
+  }
+   
+  .MeleeDamage {
+    font-weight: bolder;
+    color: white;
+    width: 15px;
+    height: 15px;
+    margin-right: 1px;
+  }
   p {
     margin: 0;
   }
@@ -263,7 +271,7 @@
     box-sizing: border-box;
     padding: 2%;
     margin-bottom: 0%;
-    margin-top: 3%;
+    /* margin-top: 3%; */
 
   }
 
@@ -279,7 +287,7 @@
     width: 350px;
     max-width: 400px;
     height: auto;
-    max-height: 700px;
+    max-height: 800px;
     background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);

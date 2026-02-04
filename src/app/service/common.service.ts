@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +9,6 @@ export class CommonService {
     constructor() { }
 
     getItemsByType(itemsArray: any[], type: string) {
-
         itemsArray = itemsArray.filter(item => type === item.item_slot_type);
         return itemsArray;
     }

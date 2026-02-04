@@ -1,4 +1,4 @@
-<div class="shop vitality">
+<div [ngClass]="categoryThemeClass" class="shop main-category-wrapper">
     <!-- tier 1 -->
     <div class="item-tier-1 tier-container">
         @if (isLoading[1]) {
@@ -99,7 +99,7 @@
 
     </div>
 
-        @if (hoveredItem) {
+    @if (hoveredItem) {
     <div class="item-card-tooltip  card-image"  [style.left.px]="cardPosition.x" [style.top.px]="cardPosition.y">
         <div class="card-header card-header-image">
             <h3>{{hoveredItem.name}}</h3>
@@ -161,8 +161,12 @@
                                                 @let impPropData = hoveredItem.properties[impPropName];
                                                         
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
+                                                    @let showIcon = impPropData.icon ? impPropData.icon : '';
                                                     <div class="sectionPassive">
-                                                        <p class="highlight" style="color: rgb(215, 215, 215);"> 
+                                                        <p class="highlight" style="color: rgb(215, 215, 215); width: 100%; display: flex; align-items: center; justify-content: center;">
+                                                            @if(showIcon != '') {
+                                                                <img style="width: 20px; height: 20px;" src="{{showIcon}}" alt="">
+                                                            }
                                                             {{showPlusImp}}{{impPropData.value}}
                                                         </p>
                                                         <p style="color: rgb(215, 215, 215); text-align: center;"> 
@@ -174,17 +178,18 @@
                                         <!-- </div> -->
                                     }
                                 </div>               
-
                                 @if (attr.properties) {
                                     @let props = attr.properties;
                                     @if(props[$index]!="AbilityCooldown" && props.length>0) {
-                                    <!-- <div style="display: flex; justify-content: center; flex-direction: row; gap: 3px; margin-top: 5px;"> -->
                                         <div class="sectionPassive" style="width: 100%; margin-top: 5px;flex-direction: row; flex-wrap: wrap; margin-bottom: 5px; padding: 5px;align-items: flex-start;">
                                             @for (impPropName of props; track $index) {
                                                 @let impPropData = hoveredItem.properties[impPropName];
+                                                
                                                 @if (impPropData && impPropData.label!="Cooldown") {
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
+                                                
                                                     <p  style="color: rgb(215, 215, 215); width: max-content;  margin-left: 10px;margin-top: 5px; box-sizing: border-box;"> 
+
                                                         <span class="highlight">{{showPlusImp}}{{impPropData.value}}</span> {{impPropData.label}}
                                                     </p>
                                                 }
@@ -220,20 +225,27 @@
                                 }
 
                                 <div style="width: 100%; box-sizing: border-box; display: flex; flex-direction: row; gap: 2px;">
+                                    
                                     @if (attr.important_properties) {
                                     @let importantProps = attr.important_properties;
-                                    <!-- <div style="display: flex; justify-content: center; flex-direction: row; gap: 3px; margin-top: 5px;"> -->
+
                                         @if(importantProps[$index]!="AbilityCooldown") {
 
                                             @for (impPropName of importantProps; track $index) {
                                                 @let impPropData = hoveredItem.properties[impPropName];
-                                                        
+                                                    @let showIcon = impPropData.icon ? impPropData.icon : '';
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
                                                     <div class="sectionPassive">
-                                                        <p class="highlight" style="color: rgb(215, 215, 215);"> 
+                                                        <p class="highlight" style="color: rgb(215, 215, 215); display: flex; align-items: center; justify-content: center;"> 
+                                                            @if(showIcon!= '') {
+                                                                <img style="width: 20px; height: 20px;" src="{{showIcon}}" alt="">
+                                                            }
+                                                            
                                                             {{showPlusImp}}{{impPropData.value}}
                                                         </p>
+
                                                         <p style="color: rgb(215, 215, 215); text-align: center;"> 
+                                                            
                                                             {{impPropData.label}}
                                                         </p>
                                                     </div>
@@ -290,13 +302,17 @@
                                     <div style="width: 100%;height: max-content; box-sizing: border-box; display: flex; flex-direction: row; gap: 2px;">
                                         @if (attr.important_properties) {
                                         @let importantProps = attr.important_properties;
-                                        <!-- <div style="display: flex; justify-content: center; flex-direction: row; gap: 3px; margin-top: 5px;"> -->
                                             @for (impPropName of importantProps; track $index) {
                                                     @let impPropData = hoveredItem.properties[impPropName];
                                                     @if (impPropData) {
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
+                                                    @let showIcon = impPropData.icon ? impPropData.icon : '';
+
                                                     <div class="sectionPassive">
                                                         <p class="highlight" style="color: rgb(215, 215, 215);"> 
+                                                            @if(showIcon != '') {
+                                                                <img style="width: 20px; height: 20px;" src="{{showIcon}}" alt="">
+                                                            }
                                                             {{showPlusImp}}{{impPropData.value}}
                                                         </p>
                                                         <p style="color: rgb(215, 215, 215); text-align: center;"> 
@@ -305,7 +321,6 @@
                                                     </div>
                                                 }
                                             }
-                                        <!-- </div> -->
                                         }
                                     </div>               
 
@@ -324,7 +339,6 @@
                                                 }
                                             </div>
                                         }
-                                            <!-- </div> -->
                                     }                 
 
                                 }
@@ -375,5 +389,4 @@
         </div>
     </div>
     }
-
 </div>

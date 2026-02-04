@@ -1,0 +1,146 @@
+/* .gun {
+    background-image: url(/assets/shop/gun/shop_bg_weapon.png);
+} */
+.theme-weapon {
+    background-image: url('/assets/shop/gun/shop_bg_weapon.png');
+    --accent-color: #ff8533;
+    /* Naranja */
+    --card-bg: rgba(255, 133, 51, 0.1);
+    --tooltip-bg: url('/assets/shop/gun/tooltip_bg_weapon.png');
+    --header-bg: url('/assets/shop/gun/tooltip_header_weapon.png');
+    --bg-card-1: url(/assets/shop/gun/card_weapon_1.png);
+    --bg-card-2: url(/assets/shop/gun/card_weapon_2.png);
+    --bg-card-3: url(/assets/shop/gun/card_weapon_3.png);
+    --bg-card-4: url(/assets/shop/gun/card_weapon_4.png);
+    --t1-cols: 5;
+    --t2-cols: 6;
+    --t3-cols: 6;
+    --t4-cols: 5;
+    --t1w: 46%;
+    --t2w: 53%;
+    --t3w: 53%;
+    --t4w: 46%;
+}
+
+.theme-vitality {
+    background-image: url('/assets/shop/vitality/shop_bg_vitality.png');
+    --accent-color: #00c8ff;
+    /* Azul */
+    --card-bg: rgba(0, 200, 255, 0.1);
+    --header-bg: url('/assets/shop/vitality/tooltip_header_vitality.png');
+    --tooltip-bg: url('/assets/shop/vitality/tooltip_bg_vitality.png');
+    --bg-card-1: url(/assets/shop/vitality/card_vitality_1.png);
+    --bg-card-2: url(/assets/shop/vitality/card_vitality_2.png);
+    --bg-card-3: url(/assets/shop/vitality/card_vitality_3.png);
+    --bg-card-4: url(/assets/shop/vitality/card_vitality_4.png);
+    --t1-cols: 5;
+    --t2-cols: 6;
+    --t3-cols: 5;
+    --t4-cols: 6;
+    --t1w: 46%;
+    --t2w: 53%;
+    --t3w: 46%;
+    --t4w: 53%;
+}
+
+.theme-spirit {
+    background-image: url('/assets/shop/tech/shop_bg_tech.png');
+    --accent-color: #00c8ff;
+    /* Azul */
+    --card-bg: rgba(0, 200, 255, 0.1);
+    --header-bg: url('/assets/shop/tech/tooltip_header_spirit.png');
+    --tooltip-bg: url('/assets/shop/tech/tooltip_bg_spirit.png');
+    --bg-card-1: url(/assets/shop/tech/card_spirit_1.png);
+    --bg-card-2: url(/assets/shop/tech/card_spirit_2.png);
+    --bg-card-3: url(/assets/shop/tech/card_spirit_3.png);
+    --bg-card-4: url(/assets/shop/tech/card_spirit_4.png);
+    --t1-cols: 5;
+    --t2-cols: 6;
+    --t3-cols: 5;
+    --t4-cols: 6;
+    --t1w: 46%;
+    --t2w: 53%;
+    --t3w: 46%;
+    --t4w: 53%;
+}
+
+.main-category-wrapper {
+    transition: all 10s ease;
+}
+
+.item-tier-1 {
+    width: var(--t1w);
+    height: 49%;
+    padding-top: 17%;
+    padding-left: 5%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    grid-template-columns: repeat(var(--t1-cols), 1fr);
+}
+
+.item-tier-2 {
+    width: var(--t2w);
+    height: 50%;
+    grid-template-columns: repeat(var(--t2-cols), 1fr);
+    padding-top: 6%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-right: 4%;
+}
+
+.item-tier-3 {
+    width: var(--t3w);
+    height: 50%;
+    grid-template-columns: repeat(var(--t3-cols), 1fr);
+    padding-top: 6%;
+    padding-left: 5%;
+    padding-bottom: 4%;
+    padding-right: 2%;
+}
+
+.item-tier-4 {
+    width: var(--t4w);
+    height: 50%;
+    grid-template-columns: repeat(var(--t4-cols), 1fr);
+    padding-top: 7%;
+    padding-left: 4%;
+    padding-right: 3%;
+    padding-bottom: 4%;
+}
+
+.item-background-1 {
+    background-image: var(--bg-card-1);
+}
+
+.item-background-2 {
+    background-image: var(--bg-card-2);
+}
+
+.item-background-3 {
+    background-image: var(--bg-card-3);
+}
+
+.item-background-4 {
+    background-image: var(--bg-card-4);
+}
+
+.red {
+    border: red solid 2px;
+}
+
+.item-info {
+    width: 20%;
+    position: fixed;
+    height: 50%;
+    background-color: white;
+    z-index: 10;
+}
+
+
+.card-image {
+    background-image: var(--tooltip-bg);
+}
+
+.card-header-image {
+    background-image: var(--header-bg);
+}

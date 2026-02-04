@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {ShopGun} from '../shop.gun/shop.gun.component';
-import { ShopTech } from '../shop.tech/shop.tech.component'; 
-import { ShopVitality } from '../shop.vitality/shop.vitality.component';
+import { ShopCategory } from '../shop.category/shop.category'; 
 import { CommonModule } from '@angular/common';
 import { ItemService } from '../../../service/shop.service/items.service';
 
 @Component({
   selector: 'app-shop-explorer',
-  imports: [CommonModule, ShopGun, ShopTech, ShopVitality],
+  imports: [CommonModule,ShopCategory],
   templateUrl: './shop.explorer.template.html',
   styleUrl: './shop.explorer.style.css',
-  // standalone: true,
+  standalone: true,
 })
 export class ShopExplorerComponent implements OnInit {
   activeTab: string = 'shopExplorer';
   public allItems: any[] = [];
   public isLoading: boolean = true;
-
   constructor(private itemService: ItemService) {}
 
   ngOnInit() {
