@@ -97,19 +97,35 @@
 .fire_rate,
 .tech_armor_up,
 .bullet_armor_down,
+.bullet_armor_up,
 .tech_armor_down,
 .clipsize,
-.melee_damage
- {
+.melee_damage,
+.reload_speed,
+.duration,
+.combat_barrier,
+.tech_power,
+.range,
+.cooldown,
+.souls,
+.spirit {
     color: rgba(213, 213, 213, 0.905);
 }
 
+
 img.slow,
-img.distance {
+img.distance,
+img.duration,
+img.tech_power,
+img.cooldown,
+img.spirit {
     filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(246deg) brightness(95%) contrast(98%);
 }
 
-img.fire_rate, img.clipsize, img.melee_damage {
+img.fire_rate,
+img.clipsize,
+img.melee_damage,
+img.reload_speed {
     filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(350deg) brightness(95%) contrast(98%);
 }
 
@@ -117,9 +133,14 @@ img.damage {
     filter: invert(80%) sepia(25%) saturate(6957%) hue-rotate(325deg) brightness(95%) contrast(146%);
 }
 
+img.souls {
+    filter: invert(15%) sepia(33%) saturate(6932%) hue-rotate(122deg) brightness(95%) contrast(67%);
+}
+
 img.health,
 img.healing,
-img.move_speed {
+img.move_speed,
+img.combat_barrier {
     filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(100deg) brightness(95%) contrast(98%);
 }
 
