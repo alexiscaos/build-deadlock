@@ -122,8 +122,9 @@
                             <div style="padding: 2%;">
                                 <p style="color: rgb(215, 215, 215);"> 
                                     <span class="highlight">{{showPlus}}{{propData.value}}</span>
-                                    {{propData.label}}
+                                    <span>{{propData.label}}</span>
                                 </p>
+
                             </div>
                         }
                     }
@@ -162,14 +163,17 @@
                                                         
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
                                                     @let showIcon = impPropData.icon ? impPropData.icon : '';
+                                                    @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
+
                                                     <div class="sectionPassive">
                                                         <p class="highlight" style="color: rgb(215, 215, 215); width: 100%; display: flex; align-items: center; justify-content: center;">
                                                             @if(showIcon != '') {
-                                                                <img style="width: 20px; height: 20px;" src="{{showIcon}}" alt="">
+                                                                <img class="{{cssClass}}" style="width: 20px; height: 20px;"
+                                                                src="{{showIcon}}" alt="">                                                          
                                                             }
                                                             {{showPlusImp}}{{impPropData.value}}
                                                         </p>
-                                                        <p style="color: rgb(215, 215, 215); text-align: center;"> 
+                                                        <p class="{{cssClass}}" style="text-align: center;"> 
                                                             {{impPropData.label}}
                                                         </p>
                                                     </div>
@@ -187,10 +191,11 @@
                                                 
                                                 @if (impPropData && impPropData.label!="Cooldown") {
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
-                                                
+                                                    @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
                                                     <p  style="color: rgb(215, 215, 215); width: max-content;  margin-left: 10px;margin-top: 5px; box-sizing: border-box;"> 
 
-                                                        <span class="highlight">{{showPlusImp}}{{impPropData.value}}</span> {{impPropData.label}}
+                                                        <span class="highlight">{{showPlusImp}}{{impPropData.value}}</span> 
+                                                        <span class="{{cssClass}}">{{impPropData.label}}</span>
                                                     </p>
                                                 }
                                             }
@@ -235,17 +240,19 @@
                                                 @let impPropData = hoveredItem.properties[impPropName];
                                                     @let showIcon = impPropData.icon ? impPropData.icon : '';
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
+                                                    @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
+
                                                     <div class="sectionPassive">
                                                         <p class="highlight" style="color: rgb(215, 215, 215); display: flex; align-items: center; justify-content: center;"> 
                                                             @if(showIcon!= '') {
-                                                                <img style="width: 20px; height: 20px;" src="{{showIcon}}" alt="">
+                                                                <img class="{{cssClass}}" style="width: 20px; height: 20px;"
+                                                                src="{{showIcon}}" alt="">
                                                             }
                                                             
                                                             {{showPlusImp}}{{impPropData.value}}
                                                         </p>
 
-                                                        <p style="color: rgb(215, 215, 215); text-align: center;"> 
-                                                            
+                                                        <p class="{{cssClass}}" style=" text-align: center;"> 
                                                             {{impPropData.label}}
                                                         </p>
                                                     </div>
@@ -264,8 +271,11 @@
                                                 @let impPropData = hoveredItem.properties[impPropName];
                                                 @if (impPropData && impPropData.label!="Cooldown") {
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
+                                                    @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
                                                     <p  style="color: rgb(215, 215, 215); width: max-content;  margin-left: 10px;margin-top: 5px; box-sizing: border-box;"> 
-                                                        <span class="highlight">{{showPlusImp}}{{impPropData.value}}</span> {{impPropData.label}}
+                                                        <span class="highlight">{{showPlusImp}}{{impPropData.value}}</span> 
+                                                        <span class="{{cssClass}}"> {{impPropData.label}}</span>
+
                                                     </p>
                                                 }
                                             }
@@ -307,15 +317,16 @@
                                                     @if (impPropData) {
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
                                                     @let showIcon = impPropData.icon ? impPropData.icon : '';
-
+                                                    @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
                                                     <div class="sectionPassive">
                                                         <p class="highlight" style="color: rgb(215, 215, 215);"> 
                                                             @if(showIcon != '') {
-                                                                <img style="width: 20px; height: 20px;" src="{{showIcon}}" alt="">
+                                                                <img class="{{cssClass}}" style="width: 20px; height: 20px;"
+                                                                src="{{showIcon}}" alt=""> 
                                                             }
                                                             {{showPlusImp}}{{impPropData.value}}
                                                         </p>
-                                                        <p style="color: rgb(215, 215, 215); text-align: center;"> 
+                                                        <p class="{{cssClass}}" style="text-align: center;"> 
                                                             {{impPropData.label}}
                                                         </p>
                                                     </div>

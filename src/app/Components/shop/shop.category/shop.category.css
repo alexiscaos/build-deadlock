@@ -20,6 +20,7 @@
     --t2w: 53%;
     --t3w: 53%;
     --t4w: 46%;
+    --t2h: 50%
 }
 
 .theme-vitality {
@@ -41,6 +42,7 @@
     --t2w: 53%;
     --t3w: 46%;
     --t4w: 53%;
+    --t2h: 50%
 }
 
 .theme-spirit {
@@ -62,11 +64,69 @@
     --t2w: 53%;
     --t3w: 46%;
     --t4w: 53%;
+    --t2h: 36%;
 }
 
 .main-category-wrapper {
     transition: all 10s ease;
 }
+
+.bullet_damage {
+    color: rgb(205, 134, 44);
+}
+
+
+.health {
+    color: green;
+}
+
+.default_class {
+    color: rgba(213, 213, 213, 0.905);
+}
+
+.tech_damage {
+    color: rgb(218, 137, 234);
+}
+
+.distance,
+.slow,
+.health,
+.healing,
+.move_speed,
+.damage,
+.fire_rate,
+.tech_armor_up,
+.bullet_armor_down,
+.tech_armor_down,
+.clipsize,
+.melee_damage
+ {
+    color: rgba(213, 213, 213, 0.905);
+}
+
+img.slow,
+img.distance {
+    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(246deg) brightness(95%) contrast(98%);
+}
+
+img.fire_rate, img.clipsize, img.melee_damage {
+    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(350deg) brightness(95%) contrast(98%);
+}
+
+img.damage {
+    filter: invert(80%) sepia(25%) saturate(6957%) hue-rotate(325deg) brightness(95%) contrast(146%);
+}
+
+img.health,
+img.healing,
+img.move_speed {
+    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(100deg) brightness(95%) contrast(98%);
+}
+
+
+
+/* Si la API te manda otra clase, pones su color aquí */
+
 
 .item-tier-1 {
     width: var(--t1w);
@@ -80,7 +140,7 @@
 
 .item-tier-2 {
     width: var(--t2w);
-    height: 50%;
+    height: var(--t2h);
     grid-template-columns: repeat(var(--t2-cols), 1fr);
     padding-top: 6%;
     padding-left: 3%;
