@@ -8,6 +8,7 @@ import { FittyDirective } from '../../../directive/fitty';
 @Component({
   selector: 'app-shop-category',
   imports: [CommonModule, HttpClientModule, FittyDirective],
+  templateUrl: './shop.category.html',
   styleUrl: './shop.category.css',
   standalone: true,
 })
