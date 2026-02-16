@@ -3,11 +3,11 @@ import { ItemService } from '../../../service/shop.service/items.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonService } from '../../../service/common.service';
+import { FittyDirective } from '../../../directive/fitty';
 
 @Component({
   selector: 'app-shop-category',
-  imports: [CommonModule, HttpClientModule],
-  templateUrl: './shop.category.html',
+  imports: [CommonModule, HttpClientModule, FittyDirective],
   styleUrl: './shop.category.css',
   standalone: true,
 })

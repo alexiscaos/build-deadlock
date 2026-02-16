@@ -15,7 +15,7 @@
             <div class="paper-wear wear-1"></div>
             <div class="item-image-container">
                 <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
-                <span class="item-title">{{item.name}}</span>
+                <p class="item-title" appFitty [fittyOptions]="{ minSize: 5 , maxSize: 14, multiLine: true }">{{item.name}}</p>
             </div>
         </div>
         }
@@ -39,7 +39,7 @@
             <div class="paper-wear wear-2"></div>
             <div class="item-image-container">
                 <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
-                <span class="item-title">{{item.name}}</span>
+                <p class="item-title" appFitty [fittyOptions]="{ minSize: 5 , maxSize: 14, multiLine: true }">{{item.name}}</p>
             </div>
         </div>
         }
@@ -63,10 +63,7 @@
             <div class="paper-wear wear-3"></div>
             <div class="item-image-container">
                 <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
-                <div class="item-title">
-                    {{item.name}}
-                </div>
-                <!-- <span class="item-title">{{item.name}}</span> -->
+                <p class="item-title" appFitty [fittyOptions]="{ minSize: 5 , maxSize: 14, multiLine: true }">{{item.name}}</p>
             </div>
         </div>
         }
@@ -91,7 +88,7 @@
             <div class="paper-wear wear-4"></div>
             <div class="item-image-container">
                 <div class="item-image" [style.background-image]="'url(' + item.shop_image_small + ')'"></div>
-                <span class="item-title" style="color: white;">{{item.name}}</span>
+                <p class="item-title" appFitty [fittyOptions]="{ minSize: 3 , maxSize: 10, multiLine: true }" style="color: white;">{{item.name}}</p>
             </div>
         </div>
         }
@@ -121,8 +118,8 @@
                             @let showPlus = propData.value > 0 ? '+' : '';
                             <div style="padding: 2%;">
                                 <p style="color: rgb(215, 215, 215);"> 
-                                    <span class="highlight">{{showPlus}}{{propData.value}}</span>
-                                    <span>{{propData.label}}</span>
+                                    <span class="highlight">{{showPlus}}{{propData.value}}</span>  
+                                    <span>  {{propData.label}}</span>
                                 </p>
 
                             </div>
@@ -155,7 +152,6 @@
                                 <div style="width: 100%; box-sizing: border-box; display: flex; flex-direction: row; gap: 2px;">
                                     @if (attr.important_properties) {
                                     @let importantProps = attr.important_properties;
-                                    <!-- <div style="display: flex; justify-content: center; flex-direction: row; gap: 3px; margin-top: 5px;"> -->
                                         @if(importantProps[$index]!="AbilityCooldown") {
 
                                             @for (impPropName of importantProps; track $index) {
@@ -166,13 +162,16 @@
                                                     @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
 
                                                     <div class="sectionPassive">
-                                                        <p class="highlight" style="color: rgb(215, 215, 215); width: 100%; display: flex; align-items: center; justify-content: center;">
+                                                        <div class="icon-stats-container">
                                                             @if(showIcon != '') {
-                                                                <img class="{{cssClass}}" style="width: 20px; height: 20px;"
-                                                                src="{{showIcon}}" alt="">                                                          
+                                                                <img class="{{cssClass}} icon-stats"
+                                                                src="{{showIcon}}" alt=""> 
                                                             }
-                                                            {{showPlusImp}}{{impPropData.value}}
-                                                        </p>
+                                                            <p class="highlight" >
+                                                                {{showPlusImp}}{{impPropData.value}}
+
+                                                            </p>
+                                                        </div>
                                                         <p class="{{cssClass}}" style="text-align: center;"> 
                                                             {{impPropData.label}}
                                                         </p>
@@ -195,7 +194,7 @@
                                                     <p  style="color: rgb(215, 215, 215); width: max-content;  margin-left: 10px;margin-top: 5px; box-sizing: border-box;"> 
 
                                                         <span class="highlight">{{showPlusImp}}{{impPropData.value}}</span> 
-                                                        <span class="{{cssClass}}">{{impPropData.label}}</span>
+                                                        <span class="{{cssClass}}">  {{impPropData.label}}</span>
                                                     </p>
                                                 }
                                             }
@@ -243,16 +242,17 @@
                                                     @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
 
                                                     <div class="sectionPassive">
-                                                        <p class="highlight" style="color: rgb(215, 215, 215); display: flex; align-items: center; justify-content: center;"> 
-                                                            @if(showIcon!= '') {
-                                                                <img class="{{cssClass}}" style="width: 20px; height: 20px;"
-                                                                src="{{showIcon}}" alt="">
+                                                        <div class="icon-stats-container">
+                                                            @if(showIcon != '') {
+                                                                <img class="{{cssClass}} icon-stats"
+                                                                src="{{showIcon}}" alt=""> 
                                                             }
-                                                            
-                                                            {{showPlusImp}}{{impPropData.value}}
-                                                        </p>
+                                                            <p class="highlight" >
+                                                                {{showPlusImp}}{{impPropData.value}}
 
-                                                        <p class="{{cssClass}}" style=" text-align: center;"> 
+                                                            </p>
+                                                        </div>
+                                                        <p class="{{cssClass}}" style="text-align: center;"> 
                                                             {{impPropData.label}}
                                                         </p>
                                                     </div>
@@ -319,13 +319,16 @@
                                                     @let showIcon = impPropData.icon ? impPropData.icon : '';
                                                     @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
                                                     <div class="sectionPassive">
-                                                        <p class="highlight" style="color: rgb(215, 215, 215);"> 
+                                                        <div class="icon-stats-container">
                                                             @if(showIcon != '') {
-                                                                <img class="{{cssClass}}" style="width: 20px; height: 20px;"
+                                                                <img class="{{cssClass}} icon-stats"
                                                                 src="{{showIcon}}" alt=""> 
                                                             }
-                                                            {{showPlusImp}}{{impPropData.value}}
-                                                        </p>
+                                                            <p class="highlight" >
+                                                                {{showPlusImp}}{{impPropData.value}}
+
+                                                            </p>
+                                                        </div>
                                                         <p class="{{cssClass}}" style="text-align: center;"> 
                                                             {{impPropData.label}}
                                                         </p>
@@ -344,7 +347,7 @@
                                                     @if (impPropData && impPropData.label!="Cooldown") {
                                                         @let showPlusImp = impPropData.value > 0 ? '+' : '';
                                                         <p  style="color: rgb(215, 215, 215); width: max-content;  margin-left: 10px;margin-top: 5px; box-sizing: border-box;"> 
-                                                                <span class="highlight">{{showPlusImp}}{{impPropData.value}}</span> {{impPropData.label}}
+                                                                <span class="highlight">{{showPlusImp}}{{impPropData.value}}  </span> {{impPropData.label}}
                                                         </p>
                                                     }
                                                 }
@@ -367,10 +370,8 @@
                     <div style=" display: flex; flex-direction: row;width: 100%; grid-template-columns: repeat(2, 1fr);">
                         @for (item of upgradeToItems; track $index) {
                             <div style="display: flex; flex-direction: row; align-items: center; width: 100%; gap: 5px; height: auto;">
-                                <div class="upgrade-image">
-                                    <img style="width: 100%; height: 100%;" src="{{item.shop_image_small}}" alt="">
-                                </div>
-                                <p style="color: white; margin-bottom: 5px;  width: auto;">{{item.name}}</p>
+                                <div class="upgrade-image" style="background-image: url('{{item.shop_image_small}}');"></div>
+                                <p style="color: white;  width: auto;">{{item.name}}</p>
                             </div>
                                 
                         }
@@ -385,10 +386,8 @@
                     <div style=" display: flex; flex-direction: row;width: 100%; grid-template-columns: repeat(2, 1fr);">
                         @for (item of upgradeFromItems; track $index) {
                             <div style="display: flex; flex-direction: row; align-items: center; width: 100%; gap: 5px; height: auto;">
-                                <div class="upgrade-image">
-                                    <img style="width: 100%; height: 100%;" src="{{item.shop_image_small}}" alt="">
-                                </div>
-                                <p style="color: white; margin-bottom: 5px;  width: auto;">{{item.name}}</p>
+                                <div class="upgrade-image" style="background-image: url('{{item.shop_image_small}}');"></div>
+                                <p style="color: white; width: auto;">{{item.name}}</p>
                             </div>
                                 
                         }

@@ -144,10 +144,18 @@ img.combat_barrier {
     filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(100deg) brightness(95%) contrast(98%);
 }
 
+.icon-stats {
+    width: 20px;
+    height: 20px;
+}
 
-
-/* Si la API te manda otra clase, pones su color aquí */
-
+.icon-stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2px;
+    margin-bottom: 5px;
+}
 
 .item-tier-1 {
     width: var(--t1w);
@@ -224,4 +232,324 @@ img.combat_barrier {
 
 .card-header-image {
     background-image: var(--header-bg);
+}
+
+
+.tier-container {
+    gap: 2%;
+    box-sizing: border-box;
+    display: grid;
+}
+
+.shop {
+    aspect-ratio: 1825 / 1618;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+
+
+.item-container::before {
+    content: '';
+    /* position: absolute;
+    top: -2%;
+    left: -5%;
+    width: 110%;
+    height: 105%; */
+    background: linear-gradient(0deg,
+            transparent,
+            transparent 30%,
+            rgba(255, 255, 255, 0.3));
+    /* transform: rotate(-15deg); */
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+
+.item-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.item-container:hover::before {
+    opacity: 1;
+    transform: translateY(5%);
+}
+
+.item-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* transform: scale(1.05); */
+    box-shadow: rgb(0 0 0) 12px 11px 12px -10px;
+    border-radius: 5px;
+}
+
+.item-background {
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.item-image-container {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    min-height: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.item-image {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60%;
+    width: 100%;
+    border-radius: 7px;
+    margin-bottom: 6%;
+}
+
+.item-title {
+    color: black;
+    font-weight: bold;
+    display: block !important;
+    width: 100% !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    line-height: 1.1;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.paper-texture {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    opacity: 100;
+    z-index: 1;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.texture-1 {
+    background-image: url(/assets/shop/shopitem_papertexture01.png);
+}
+
+.texture-2 {
+    background-image: url(/assets/shop/shopitem_papertexture02.png);
+}
+
+.texture-3 {
+    background-image: url(/assets/shop/shopitem_papertexture03.png);
+}
+
+.paper-wear {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 30%;
+    z-index: 1;
+    opacity: 40%;
+}
+
+.wear-1 {
+    background-image: url(/assets/shop/shopitem_paperwear01.png);
+}
+
+.wear-2 {
+    background-image: url(/assets/shop/shopitem_paperwear02.png);
+}
+
+.wear-3 {
+    background-image: url(/assets/shop/shopitem_paperwear03.png);
+}
+
+.wear-4 {
+    background-image: url(/assets/shop/shopitem_paperwear04.png);
+}
+
+
+.passive {
+    color: white;
+    background-color: #0000003b;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 2rem;
+    position: relative;
+
+}
+
+.passive-title {
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    margin-left: 5px;
+
+}
+
+.abilityCooldown {
+    align-items: center;
+    display: flex;
+    width: 20%;
+    flex-direction: row-reverse;
+    padding-right: 5%;
+    background-color: rgba(0, 0, 0, 0.788);
+}
+
+.cooldownIcon {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.highlight {
+    font-weight: bolder;
+    color: white;
+
+}
+
+.MeleeDamage {
+    font-weight: bolder;
+    color: white;
+    width: 15px;
+    height: 15px;
+    margin-right: 1px;
+}
+
+p {
+    margin: 0;
+}
+
+.passive_description {
+    margin-top: 2%;
+    padding: 2%;
+    color: rgb(215, 215, 215);
+}
+
+.sectionPassive {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    padding: 3%;
+    background-color: #0000003b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+.upgrade {
+
+    background-color: #0000003b;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 2%;
+    margin-bottom: 0%;
+}
+
+.upgrade-image {
+    height: 30px;
+    width: 33px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.item-card-tooltip {
+    position: fixed;
+    z-index: 9999;
+    width: 450px;
+    max-width: 400px;
+    height: auto;
+    max-height: 800px;
+    background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    animation: fadeIn 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    padding-bottom: 0%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+    height: 10%;
+    padding: 3%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #FFE4B5;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.item-price {
+    color: #98D8C8;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
