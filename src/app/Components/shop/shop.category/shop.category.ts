@@ -9,7 +9,7 @@ import { FittyDirective } from '../../../directive/fitty';
   selector: 'app-shop-category',
   imports: [CommonModule, HttpClientModule, FittyDirective],
   templateUrl: './shop.category.html',
-  styleUrl: './shop.category.css',
+  styleUrls: ['./shop.category.css','./shop.categoryTooltip.css'],
   standalone: true,
 })
 export class ShopCategory implements OnInit {

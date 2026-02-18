@@ -1,41 +1,23 @@
-<div class="shop-container">
+<div class="shop-space-container">
+
     <div class="shop-tabs">
-        <!-- Tab explorer/build -->
-        @if(activeTab === 'shopExplorer'){
-            <img class="shop-tab animate fade-in" (click)="setActiveTab('shopExplorer')" src="/assets/shop/explorer/shop_tab_builds_open.png" alt="">
-        }@else{
-            <img class="shop-tab" (click)="setActiveTab('shopExplorer')" src="/assets/shop/explorer/shop_tab_builds.png" alt="">
-        }
-        <!-- Tab gun -->    
+        @for(type of itemSlotTypeArray; track type.key){
+            @let lowerType = type.value.toLowerCase();
 
-        @if(activeTab === 'shopGun'){
-            <img class="shop-tab animate fade-in" (click)="setActiveTab('shopGun')" src="/assets/shop/gun/shop_tab_weapon_open.png" alt="">
-        }@else{
-            <img class="shop-tab" (click)="setActiveTab('shopGun')" src="/assets/shop/gun/shop_tab_weapon.png" alt="">
-        }
-        <!-- Tab vitality -->
+            @if(activeTab === 'shop' + type.value){
+                <img class="shop-tab animate fade-in" (click)="setActiveTab('shop' + type.value)" [src]="'/assets/shop/' + lowerType + '/shop_tab_' + lowerType + '_open.png'" alt="">
+            }@else{
+                <img class="shop-tab" (click)="setActiveTab('shop' + type.value)" [src]="'/assets/shop/' + lowerType + '/shop_tab_' + lowerType + '.png'" alt="">    
 
-        @if(activeTab === 'shopVitality'){
-            <img class="shop-tab animate fade-in" (click)="setActiveTab('shopVitality')" src="/assets/shop/vitality/shop_tab_vitality_open.png" alt="">
-        }@else{
-            <img class="shop-tab" (click)="setActiveTab('shopVitality')" src="/assets/shop/vitality/shop_tab_vitality.png" alt="">
-        }
-
-        <!-- Tab tech -->
-
-        @if(activeTab === 'shopTech'){
-            <img class="shop-tab animate fade-in" (click)="setActiveTab('shopTech')" src="/assets/shop/tech/shop_tab_tech_open.png" alt="">
-        }@else{
-            <img class="shop-tab" (click)="setActiveTab('shopTech')" src="/assets/shop/tech/shop_tab_tech.png" alt="">
+            }
         }
     </div>
+
     <div class="items-container" [ngSwitch]="activeTab">
         <div class="shop-explorer" *ngSwitchCase="'shopExplorer'"></div>
-        <app-shop-category class="shop-container" *ngSwitchCase="'shopGun'" [allItems]="allItems" [type]="'weapon'"></app-shop-category>
+        <app-shop-category class="shop-container" *ngSwitchCase="'shopWeapon'" [allItems]="allItems" [type]="'weapon'"></app-shop-category>
         <app-shop-category class="shop-container" *ngSwitchCase="'shopVitality'" [allItems]="allItems" [type]="'vitality'"></app-shop-category>
-        <app-shop-category class="shop-container" *ngSwitchCase="'shopTech'" [allItems]="allItems" [type]="'spirit'"></app-shop-category>
-
-
+        <app-shop-category class="shop-container" *ngSwitchCase="'shopSpirit'" [allItems]="allItems" [type]="'spirit'"></app-shop-category>
     </div>
 
 </div>

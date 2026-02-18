@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopCategory } from '../shop.category/shop.category'; 
 import { CommonModule } from '@angular/common';
 import { ItemService } from '../../../service/shop.service/items.service';
+import {ItemSlotType} from './ItemSlotType.enum';
 
 @Component({
   selector: 'app-shop-explorer',
@@ -14,10 +15,18 @@ export class ShopExplorerComponent implements OnInit {
   activeTab: string = 'shopExplorer';
   public allItems: any[] = [];
   public isLoading: boolean = true;
+  public itemSlotType = ItemSlotType;
+  public itemSlotTypeArray: any[] = [];
   constructor(private itemService: ItemService) {}
 
   ngOnInit() {
     this.loadAllItems();
+    console.log("ItemSlotType enum values:", this.itemSlotType);
+    console.log(this.activeTab);
+    this.itemSlotTypeArray = Object.keys(this.itemSlotType).map(key => ({
+      key: key,
+      value: this.itemSlotType[key as keyof typeof ItemSlotType]
+    }));
   }
 
   public loadAllItems() {

@@ -1,32 +1,21 @@
-/* .gun {
-    background-image: url(/assets/shop/gun/shop_bg_weapon.png);
-} */
 .theme-weapon {
-    background-image: url('/assets/shop/gun/shop_bg_weapon.png');
-    --accent-color: #ff8533;
-    /* Naranja */
+    background-image: url('/assets/shop/weapon/shop_bg_weapon.png');
     --card-bg: rgba(255, 133, 51, 0.1);
-    --tooltip-bg: url('/assets/shop/gun/tooltip_bg_weapon.png');
-    --header-bg: url('/assets/shop/gun/tooltip_header_weapon.png');
-    --bg-card-1: url(/assets/shop/gun/card_weapon_1.png);
-    --bg-card-2: url(/assets/shop/gun/card_weapon_2.png);
-    --bg-card-3: url(/assets/shop/gun/card_weapon_3.png);
-    --bg-card-4: url(/assets/shop/gun/card_weapon_4.png);
-    --t1-cols: 5;
-    --t2-cols: 6;
-    --t3-cols: 6;
-    --t4-cols: 5;
-    --t1w: 46%;
-    --t2w: 53%;
-    --t3w: 53%;
-    --t4w: 46%;
-    --t2h: 50%
+    --tooltip-bg: url('/assets/shop/weapon/tooltip_bg_weapon.png');
+    --header-bg: url('/assets/shop/weapon/tooltip_header_weapon.png');
+    --bg-card-1: url(/assets/shop/weapon/card_weapon_1.png);
+    --bg-card-2: url(/assets/shop/weapon/card_weapon_2.png);
+    --bg-card-3: url(/assets/shop/weapon/card_weapon_3.png);
+    --bg-card-4: url(/assets/shop/weapon/card_weapon_4.png);
+    --t3-cols: 6 !important;
+    --t4-cols: 5 !important;
+    --t3w: 45% !important;
+    --t4w: 39% !important;
 }
+
 
 .theme-vitality {
     background-image: url('/assets/shop/vitality/shop_bg_vitality.png');
-    --accent-color: #00c8ff;
-    /* Azul */
     --card-bg: rgba(0, 200, 255, 0.1);
     --header-bg: url('/assets/shop/vitality/tooltip_header_vitality.png');
     --tooltip-bg: url('/assets/shop/vitality/tooltip_bg_vitality.png');
@@ -34,133 +23,29 @@
     --bg-card-2: url(/assets/shop/vitality/card_vitality_2.png);
     --bg-card-3: url(/assets/shop/vitality/card_vitality_3.png);
     --bg-card-4: url(/assets/shop/vitality/card_vitality_4.png);
-    --t1-cols: 5;
-    --t2-cols: 6;
-    --t3-cols: 5;
-    --t4-cols: 6;
-    --t1w: 46%;
-    --t2w: 53%;
-    --t3w: 46%;
-    --t4w: 53%;
-    --t2h: 50%
+
 }
 
 .theme-spirit {
-    background-image: url('/assets/shop/tech/shop_bg_tech.png');
-    --accent-color: #00c8ff;
-    /* Azul */
+    background-image: url('/assets/shop/spirit/shop_bg_spirit.png');
     --card-bg: rgba(0, 200, 255, 0.1);
-    --header-bg: url('/assets/shop/tech/tooltip_header_spirit.png');
-    --tooltip-bg: url('/assets/shop/tech/tooltip_bg_spirit.png');
-    --bg-card-1: url(/assets/shop/tech/card_spirit_1.png);
-    --bg-card-2: url(/assets/shop/tech/card_spirit_2.png);
-    --bg-card-3: url(/assets/shop/tech/card_spirit_3.png);
-    --bg-card-4: url(/assets/shop/tech/card_spirit_4.png);
-    --t1-cols: 5;
-    --t2-cols: 6;
-    --t3-cols: 5;
-    --t4-cols: 6;
-    --t1w: 46%;
-    --t2w: 53%;
-    --t3w: 46%;
-    --t4w: 53%;
-    --t2h: 36%;
+    --header-bg: url('/assets/shop/spirit/tooltip_header_spirit.png');
+    --tooltip-bg: url('/assets/shop/spirit/tooltip_bg_spirit.png');
+    --bg-card-1: url(/assets/shop/spirit/card_spirit_1.png);
+    --bg-card-2: url(/assets/shop/spirit/card_spirit_2.png);
+    --bg-card-3: url(/assets/shop/spirit/card_spirit_3.png);
+    --bg-card-4: url(/assets/shop/spirit/card_spirit_4.png);
+    --t2h: 36% !important;
 }
 
 .main-category-wrapper {
     transition: all 10s ease;
 }
 
-.bullet_damage {
-    color: rgb(205, 134, 44);
-}
-
-
-.health {
-    color: green;
-}
-
-.default_class {
-    color: rgba(213, 213, 213, 0.905);
-}
-
-.tech_damage {
-    color: rgb(218, 137, 234);
-}
-
-.distance,
-.slow,
-.health,
-.healing,
-.move_speed,
-.damage,
-.fire_rate,
-.tech_armor_up,
-.bullet_armor_down,
-.bullet_armor_up,
-.tech_armor_down,
-.clipsize,
-.melee_damage,
-.reload_speed,
-.duration,
-.combat_barrier,
-.tech_power,
-.range,
-.cooldown,
-.souls,
-.spirit {
-    color: rgba(213, 213, 213, 0.905);
-}
-
-
-img.slow,
-img.distance,
-img.duration,
-img.tech_power,
-img.cooldown,
-img.spirit {
-    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(246deg) brightness(95%) contrast(98%);
-}
-
-img.fire_rate,
-img.clipsize,
-img.melee_damage,
-img.reload_speed {
-    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(350deg) brightness(95%) contrast(98%);
-}
-
-img.damage {
-    filter: invert(80%) sepia(25%) saturate(6957%) hue-rotate(325deg) brightness(95%) contrast(146%);
-}
-
-img.souls {
-    filter: invert(15%) sepia(33%) saturate(6932%) hue-rotate(122deg) brightness(95%) contrast(67%);
-}
-
-img.health,
-img.healing,
-img.move_speed,
-img.combat_barrier {
-    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(100deg) brightness(95%) contrast(98%);
-}
-
-.icon-stats {
-    width: 20px;
-    height: 20px;
-}
-
-.icon-stats-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 2px;
-    margin-bottom: 5px;
-}
-
 .item-tier-1 {
     width: var(--t1w);
     height: 49%;
-    padding-top: 17%;
+    padding-top: 15%;
     padding-left: 5%;
     padding-right: 2%;
     padding-bottom: 2%;
@@ -171,7 +56,7 @@ img.combat_barrier {
     width: var(--t2w);
     height: var(--t2h);
     grid-template-columns: repeat(var(--t2-cols), 1fr);
-    padding-top: 6%;
+    padding-top: 5%;
     padding-left: 3%;
     padding-bottom: 3%;
     padding-right: 4%;
@@ -181,7 +66,7 @@ img.combat_barrier {
     width: var(--t3w);
     height: 50%;
     grid-template-columns: repeat(var(--t3-cols), 1fr);
-    padding-top: 6%;
+    padding-top: 5%;
     padding-left: 5%;
     padding-bottom: 4%;
     padding-right: 2%;
@@ -191,9 +76,9 @@ img.combat_barrier {
     width: var(--t4w);
     height: 50%;
     grid-template-columns: repeat(var(--t4-cols), 1fr);
-    padding-top: 7%;
-    padding-left: 4%;
-    padding-right: 3%;
+    padding-top: 5%;
+    padding-left: 3%;
+    padding-right: 4%;
     padding-bottom: 4%;
 }
 
@@ -215,14 +100,6 @@ img.combat_barrier {
 
 .red {
     border: red solid 2px;
-}
-
-.item-info {
-    width: 20%;
-    position: fixed;
-    height: 50%;
-    background-color: white;
-    z-index: 10;
 }
 
 
@@ -252,22 +129,26 @@ img.combat_barrier {
     display: flex;
     box-sizing: border-box;
     flex-wrap: wrap;
+    --t1w: 39%;
+    --t2w: 46%;
+    --t3w: 39%;
+    --t4w: 46%;
+    --t2h: 50%;
+    --t1-cols: 5;
+    --t2-cols: 6;
+    --t3-cols: 5;
+    --t4-cols: 6;
 }
 
 
 
 .item-container::before {
     content: '';
-    /* position: absolute;
-    top: -2%;
-    left: -5%;
-    width: 110%;
-    height: 105%; */
+
     background: linear-gradient(0deg,
             transparent,
             transparent 30%,
             rgba(255, 255, 255, 0.3));
-    /* transform: rotate(-15deg); */
     transition: all 0.5s ease;
     opacity: 0;
 }
@@ -292,7 +173,6 @@ img.combat_barrier {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    /* transform: scale(1.05); */
     box-shadow: rgb(0 0 0) 12px 11px 12px -10px;
     border-radius: 5px;
 }
@@ -328,7 +208,8 @@ img.combat_barrier {
     background-size: cover;
     height: 60%;
     width: 100%;
-    border-radius: 7px;
+    border-radius: 2px;
+
     margin-bottom: 6%;
 }
 
@@ -344,212 +225,4 @@ img.combat_barrier {
     line-height: 1.1;
     text-align: center;
     overflow: hidden;
-}
-
-
-.paper-texture {
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    mix-blend-mode: multiply;
-    opacity: 100;
-    z-index: 1;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-}
-
-.texture-1 {
-    background-image: url(/assets/shop/shopitem_papertexture01.png);
-}
-
-.texture-2 {
-    background-image: url(/assets/shop/shopitem_papertexture02.png);
-}
-
-.texture-3 {
-    background-image: url(/assets/shop/shopitem_papertexture03.png);
-}
-
-.paper-wear {
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    flex-grow: 1;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 30%;
-    z-index: 1;
-    opacity: 40%;
-}
-
-.wear-1 {
-    background-image: url(/assets/shop/shopitem_paperwear01.png);
-}
-
-.wear-2 {
-    background-image: url(/assets/shop/shopitem_paperwear02.png);
-}
-
-.wear-3 {
-    background-image: url(/assets/shop/shopitem_paperwear03.png);
-}
-
-.wear-4 {
-    background-image: url(/assets/shop/shopitem_paperwear04.png);
-}
-
-
-.passive {
-    color: white;
-    background-color: #0000003b;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 2rem;
-    position: relative;
-
-}
-
-.passive-title {
-    width: 20%;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    margin-left: 5px;
-
-}
-
-.abilityCooldown {
-    align-items: center;
-    display: flex;
-    width: 20%;
-    flex-direction: row-reverse;
-    padding-right: 5%;
-    background-color: rgba(0, 0, 0, 0.788);
-}
-
-.cooldownIcon {
-    width: 20px;
-    margin-right: 5px;
-}
-
-.highlight {
-    font-weight: bolder;
-    color: white;
-
-}
-
-.MeleeDamage {
-    font-weight: bolder;
-    color: white;
-    width: 15px;
-    height: 15px;
-    margin-right: 1px;
-}
-
-p {
-    margin: 0;
-}
-
-.passive_description {
-    margin-top: 2%;
-    padding: 2%;
-    color: rgb(215, 215, 215);
-}
-
-.sectionPassive {
-    border-radius: 5px;
-    width: 100%;
-    height: auto;
-    padding: 3%;
-    background-color: #0000003b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-
-}
-
-.upgrade {
-
-    background-color: #0000003b;
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    padding: 2%;
-    margin-bottom: 0%;
-}
-
-.upgrade-image {
-    height: 30px;
-    width: 33px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
-.item-card-tooltip {
-    position: fixed;
-    z-index: 9999;
-    width: 450px;
-    max-width: 400px;
-    height: auto;
-    max-height: 800px;
-    background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    pointer-events: none;
-    animation: fadeIn 0.2s ease;
-    font-family: 'Arial', sans-serif;
-    box-sizing: border-box;
-    padding-bottom: 0%;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-radius: 8px;
-    height: 10%;
-    padding: 3%;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-header h3 {
-    margin: 0;
-    color: #FFE4B5;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.item-price {
-    color: #98D8C8;
-    font-size: 25px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
 }

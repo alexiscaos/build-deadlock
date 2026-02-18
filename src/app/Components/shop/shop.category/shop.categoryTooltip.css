@@ -1,0 +1,309 @@
+
+.main-category-wrapper {
+    transition: all 10s ease;
+}
+
+.bullet_damage {
+    color: rgb(205, 134, 44);
+}
+
+
+.health {
+    color: green;
+}
+
+.default_class {
+    color: rgba(213, 213, 213, 0.905);
+}
+
+.tech_damage {
+    color: rgb(218, 137, 234);
+}
+
+.distance,
+.slow,
+.health,
+.healing,
+.move_speed,
+.damage,
+.fire_rate,
+.tech_armor_up,
+.bullet_armor_down,
+.bullet_armor_up,
+.tech_armor_down,
+.clipsize,
+.melee_damage,
+.reload_speed,
+.duration,
+.combat_barrier,
+.tech_power,
+.range,
+.cooldown,
+.souls,
+.spirit {
+    color: rgba(213, 213, 213, 0.905);
+}
+
+img.slow,
+img.distance,
+img.duration,
+img.tech_power,
+img.cooldown,
+img.spirit {
+    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(246deg) brightness(95%) contrast(98%);
+}
+
+img.fire_rate,
+img.clipsize,
+img.melee_damage,
+img.reload_speed {
+    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(350deg) brightness(95%) contrast(98%);
+}
+
+img.damage {
+    filter: invert(80%) sepia(25%) saturate(6957%) hue-rotate(325deg) brightness(95%) contrast(146%);
+}
+
+img.souls {
+    filter: invert(15%) sepia(33%) saturate(6932%) hue-rotate(122deg) brightness(95%) contrast(67%);
+}
+
+img.health,
+img.healing,
+img.move_speed,
+img.combat_barrier {
+    filter: invert(15%) sepia(48%) saturate(6932%) hue-rotate(100deg) brightness(95%) contrast(98%);
+}
+
+.icon-stats {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2px;
+    margin-bottom: 5px;
+}
+
+.red {
+    border: red solid 2px;
+}
+
+.item-info {
+    width: 20%;
+    position: fixed;
+    height: 50%;
+    background-color: white;
+    z-index: 10;
+}
+
+
+.item-container:hover::before {
+    opacity: 1;
+    transform: translateY(5%);
+}
+
+.passive {
+    color: white;
+    background-color: #0000003b;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 2rem;
+    position: relative;
+
+}
+
+.passive-title {
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    margin-left: 5px;
+
+}
+
+.abilityCooldown {
+    align-items: center;
+    display: flex;
+    width: 20%;
+    flex-direction: row-reverse;
+    padding-right: 5%;
+    background-color: rgba(0, 0, 0, 0.788);
+}
+
+.cooldownIcon {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.highlight {
+    font-weight: bolder;
+    color: white;
+
+}
+
+p {
+    margin: 0;
+}
+
+.passive_description {
+    margin-top: 2%;
+    padding: 2%;
+    color: rgb(215, 215, 215);
+}
+
+.sectionPassive {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    padding: 3%;
+    background-color: #0000003b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+.upgrade {
+
+    background-color: #0000003b;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 2%;
+    margin-bottom: 0%;
+}
+
+.upgrade-image {
+    height: 30px;
+    width: 33px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.item-card-tooltip {
+    position: fixed;
+    z-index: 9999;
+    width: 450px;
+    max-width: 400px;
+    height: auto;
+    max-height: 800px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    animation: fadeIn 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    padding-bottom: 0%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+    height: 10%;
+    padding: 3%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #FFE4B5;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.item-price {
+    color: #98D8C8;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.paper-texture {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    opacity: 100;
+    z-index: 1;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.texture-1 {
+    background-image: url(/assets/shop/shopitem_papertexture01.png);
+}
+
+.texture-2 {
+    background-image: url(/assets/shop/shopitem_papertexture02.png);
+}
+
+.texture-3 {
+    background-image: url(/assets/shop/shopitem_papertexture03.png);
+}
+
+.paper-wear {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 30%;
+    z-index: 1;
+    opacity: 40%;
+}
+
+.wear-1 {
+    background-image: url(/assets/shop/shopitem_paperwear01.png);
+}
+
+.wear-2 {
+    background-image: url(/assets/shop/shopitem_paperwear02.png);
+}
+
+.wear-3 {
+    background-image: url(/assets/shop/shopitem_paperwear03.png);
+}
+
+.wear-4 {
+    background-image: url(/assets/shop/shopitem_paperwear04.png);
+}
+
+:host ::ng-deep img.MeleeDamage {
+    width: 18px !important;
+    height: 18px !important;
+    object-fit: contain;
+}
