@@ -1,12 +1,11 @@
-
-<router-outlet >
-
-    <main style="box-sizing: border-box; width: 100%; display: flex;">
-        <div style="width: 35%;">
-
-        </div>
-        <div style="box-sizing: border-box; width: 60%; height: 100vh;">
-            <app-shop-explorer></app-shop-explorer>
-        </div>
-    </main>
-</router-outlet>
+<!-- El contenido fijo (como tu layout) va AFUERA -->
+<main style="box-sizing: border-box; width: 100%; display: flex;">
+    <div style="width: 35%;">
+        <!-- Aquí podrías poner un menú o dejarlo para rutas específicas -->
+        <router-outlet></router-outlet> 
+    </div>
+    <div style="box-sizing: border-box; width: 60%; height: 100vh;">
+        <!-- Tu componente fijo -->
+        <app-shop-explorer></app-shop-explorer>
+    </div>
+</main>
