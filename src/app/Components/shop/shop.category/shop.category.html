@@ -127,20 +127,24 @@
                     }
                 }
                 
-                @if ( section.section_type === 'passive' ) {
+                @if ( section.section_type === 'passive') {
                     <div class="passive_container">
                         <div class="passive">
                                 <div class="passive-title">Passive</div>
-                                @if (hoveredItem.properties.AbilityCooldown.value > 0) {
-                                    <div class="abilityCooldown">
+                                @for (attr of section.section_attributes; track attr) {
+                                    @if (attr.properties.includes('AbilityCooldown') && hoveredItem.properties.AbilityCooldown.value>0) {
+                                        <div class="abilityCooldown">
 
-                                        <p>{{hoveredItem.properties.AbilityCooldown.value}}
-                                            <span>{{hoveredItem.properties.AbilityCooldown.postfix}}</span>
-                                        </p>
-                                        <img [src]="hoveredItem.properties.AbilityCooldown.icon"
-                                            [alt]="hoveredItem.properties.AbilityCooldown.label" class="cooldownIcon">
-                                    </div> 
+                                            <p>{{hoveredItem.properties.AbilityCooldown.value}}
+                                                <span>{{hoveredItem.properties.AbilityCooldown.postfix}}</span>
+                                            </p>
+                                            <img [src]="hoveredItem.properties.AbilityCooldown.icon"
+                                                [alt]="hoveredItem.properties.AbilityCooldown.label" class="cooldownIcon">
+                                        </div> 
+                                    }
+
                                 }
+
                         </div>
 
                         <div style="padding: 2%;">
@@ -161,7 +165,7 @@
                                                     @let showIcon = impPropData.icon ? impPropData.icon : '';
                                                     @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
                                                     @if ((impPropData.value  > 0 || impPropData.value < 0) && impPropData.label) {
-                                                        <div class="sectionPassive">
+                                                        <div class="sectionPassive"> 
                                                             <div class="icon-stats-container">
                                                                 @if(showIcon != '') {
                                                                     <img class="{{cssClass}} icon-stats"
@@ -185,7 +189,7 @@
                                 @if (attr.properties) {
                                     @let props = attr.properties;
                                     @if(props[$index]!="AbilityCooldown" && props.length>0) {
-                                        <div class="sectionPassive" style="width: 100%; margin-top: 5px;flex-direction: row; flex-wrap: wrap; margin-bottom: 5px; padding: 5px;align-items: flex-start; " >
+                                        <div class="sectionPassive" style="width: 100%; margin-top: 5px;flex-direction: row; flex-wrap: wrap; margin-bottom: 5px; padding: 5px;align-items: flex-start; ">
                                             @for (impPropName of props; track $index) {
                                                 @let impPropData = hoveredItem.properties[impPropName];
                                                 
@@ -198,6 +202,37 @@
                                                         <span class="{{cssClass}}">  {{impPropData.label}}</span>
                                                     </p>
                                                 }
+                                            }
+                                        </div>
+                                    }
+                                }  
+                                @if (attr.elevated_properties) {
+                                    @let props = attr.elevated_properties;
+                                    @if(props[$index]!="AbilityCooldown" && props.length>0) {
+                                        <div style="width: 100%; margin-top: 5px;flex-direction: row; flex-wrap: wrap; margin-bottom: 5px; padding: 5px;align-items: flex-start; " >
+                                            @for (impPropName of props; track $index) {
+                                                @let impPropData = hoveredItem.properties[impPropName];
+                                                        
+                                                    @let showPlusImp = impPropData.value > 0 ? '+' : '';
+                                                    @let showIcon = impPropData.icon ? impPropData.icon : '';
+                                                    @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
+                                                    @if ((impPropData.value  > 0 || impPropData.value < 0) && impPropData.label) {
+                                                        <div class="sectionPassive" >
+                                                            <div class="icon-stats-container">
+                                                                @if(showIcon != '') {
+                                                                    <img class="{{cssClass}} icon-stats"
+                                                                    src="{{showIcon}}" alt=""> 
+                                                                }
+                                                                <p class="highlight" >
+                                                                    {{showPlusImp}}{{impPropData.value}}
+
+                                                                </p>
+                                                            </div>
+                                                            <p class="{{cssClass}}" style="text-align: center;"> 
+                                                                {{impPropData.label}}
+                                                            </p>
+                                                        </div>
+                                                    }
                                             }
                                         </div>
                                     }
@@ -242,7 +277,7 @@
                                                     @let showPlusImp = impPropData.value > 0 ? '+' : '';
                                                     @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
 
-                                                    <div class="sectionPassive" >
+                                                    <div class="sectionPassive">
                                                         <div class="icon-stats-container">
                                                             @if(showIcon != '') {
                                                                 <img class="{{cssClass}} icon-stats"
@@ -307,11 +342,45 @@
                              <div style="padding: 2%;">
                                 @for (attr of section.section_attributes; track $index) {
                                     @if (attr.loc_string) {
-                                        <p class="passive_description" [innerHTML]="attr.loc_string"></p>
+                                        <p class="passive_description" style="border: red solid 1px;" [innerHTML]="attr.loc_string"></p>
                                     }
 
                                     <div style="width: 100%;height: max-content; box-sizing: border-box; display: flex; flex-direction: row; gap: 2px;">
+
+                                        @if (attr.important_properties_with_icon) {
+                                        @let importantProps = attr.important_properties_with_icon;
+
+                                        <div class="important-icons-container">
+                                            @for (impProp of importantProps; track impProp.name) {
+                                                    <p> {{impProp.name}}</p>
+                                                    @let impPropData = hoveredItem.properties[impProp.name];
+                                                    @if (impPropData) {
+                                                    @let showPlusImp = impPropData.value > 0 ? '+' : '';
+                                                    @let showIcon = impPropData.icon ? impPropData.icon : '';
+                                                    @let cssClass = impPropData.css_class ? impPropData.css_class: 'default_class';
+                                                    <div class="sectionPassive">
+                                                        <div class="icon-stats-container">
+                                                            @if(showIcon != '') {
+                                                                <img class="{{cssClass}} icon-stats"
+                                                                src="{{showIcon}}" alt=""> 
+                                                            }
+                                                            <p class="highlight" >
+                                                                {{showPlusImp}}{{impPropData.value}}
+
+                                                            </p>
+                                                        </div>
+                                                        <p class="{{cssClass}}" style="text-align: center;"> 
+                                                            {{impPropData.label}}
+                                                        </p>
+                                                    </div>
+                                            }
+                                            }
+                                        </div>
+                                    }
+
+
                                         @if (attr.important_properties) {
+
                                         @let importantProps = attr.important_properties;
                                             @for (impPropName of importantProps; track $index) {
                                                     @let impPropData = hoveredItem.properties[impPropName];
@@ -337,9 +406,10 @@
                                                 }
                                             }
                                         }
-                                    </div>               
+                                    </div>
+                                               
 
-                                    @if (attr.properties) {
+                                    @if (attr.properties && attr.properties.length > 0) {
                                         @let props = attr.properties;
                                         @if(props[0]!="AbilityCooldown") {
                                             <div class="sectionPassive" style="width: 100%; margin-top: 5px;flex-direction: row; flex-wrap: wrap; margin-bottom: 5px; padding: 5px;align-items: flex-start;">
