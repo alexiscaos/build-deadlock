@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "baseHref": "/build-deadlock/",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
