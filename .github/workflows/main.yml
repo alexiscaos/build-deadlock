@@ -19,18 +19,22 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Angular 21 requiere Node 18.x o superior
+          node-version: 20
           cache: 'npm'
-
+          
       - name: Instalar dependencias
         run: npm ci
 
       - name: Build de producción
-       
-        run: npx ng build --configuration production --base-href /build-deadlock/
+        run: npx ng build --configuration production
+
+      - name: Crear 404.html y .nojekyll
+        run: |
+          cp dist/build-deadlock/browser/index.html dist/build-deadlock/browser/404.html
+          touch dist/build-deadlock/browser/.nojekyll
 
       - name: Desplegar
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/build-deadlock/browser # En Angular moderno, el build suele estar en /browser
-          branch: gh-pages # GitHub Actions creará esta rama por ti
+          folder: dist/build-deadlock/browser
+          branch: gh-pages
