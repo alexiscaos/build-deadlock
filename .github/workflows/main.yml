@@ -1,40 +1,33 @@
-name: Deploy Angular to GitHub Pages
+name: Angular-CI
 
 on:
   push:
-    branches:
-      - main  # O el nombre de tu rama principal
-
-permissions:
-  contents: write
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout del código
-        uses: actions/checkout@v4
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup nodejs
+        uses: actions/setup-node@v3.7.0
         with:
-          node-version: 20
-          cache: 'npm'
-          
-      - name: Instalar dependencias
-        run: npm ci
-
-      - name: Build de producción
-        run: npx ng build --configuration production
-
-      - name: Crear 404.html y .nojekyll
-        run: |
-          cp dist/build-deadlock/browser/index.html dist/build-deadlock/browser/404.html
-          touch dist/build-deadlock/browser/.nojekyll
-
-      - name: Desplegar
-        uses: JamesIves/github-pages-deploy-action@v4
+          node-version: "20"
+      
+      - name: Install deps
+        run: npm i
+      
+      - name: Build app bundle
+        run:  npm run build:prod
+      
+      - name: Rename index for routing
+        run: cp dist/build-deadlock/browser/index.html dist/build-deadlock/browser/404.html
+      
+      - name: Deploy to Pages
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          folder: dist/build-deadlock/browser
-          branch: gh-pages
+          build_dir: dist/build-deadlock/browser
