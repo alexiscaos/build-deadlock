@@ -15,11 +15,13 @@
           "options": {
             "baseHref": "/",
             "browser": "src/main.ts",
+            "outputPath": "dist/build-deadlock",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/"
               }
             ],
             "styles": [
@@ -28,7 +30,7 @@
             "server": "src/main.server.ts",
             "outputMode": "static",
             "ssr": false,
-            "prerender":true
+            "prerender": true
           },
           "configurations": {
             "production": {
@@ -53,7 +55,7 @@
               "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular/build:dev-server",

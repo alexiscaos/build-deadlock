@@ -18,4 +18,6 @@
     box-sizing: border-box;
   }
 
-  
+  :root {
+  --assets-path: '/assets';
+  }
