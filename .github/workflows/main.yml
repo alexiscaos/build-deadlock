@@ -28,6 +28,7 @@ jobs:
         run: cp dist/build-deadlock/browser/index.html dist/build-deadlock/browser/404.html
       
       - name: Deploy to Pages
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          build_dir: dist/build-deadlock/browser
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/build-deadlock/browser
