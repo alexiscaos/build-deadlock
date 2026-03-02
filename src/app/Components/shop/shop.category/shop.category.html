@@ -342,7 +342,7 @@
                              <div style="padding: 2%;">
                                 @for (attr of section.section_attributes; track $index) {
                                     @if (attr.loc_string) {
-                                        <p class="passive_description" style="border: red solid 1px;" [innerHTML]="attr.loc_string"></p>
+                                        <p class="passive_description" [innerHTML]="attr.loc_string"></p>
                                     }
 
                                     <div style="width: 100%;height: max-content; box-sizing: border-box; display: flex; flex-direction: row; gap: 2px;">

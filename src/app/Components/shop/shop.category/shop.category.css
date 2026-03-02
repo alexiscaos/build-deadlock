@@ -98,11 +98,6 @@
     background-image: var(--bg-card-4);
 }
 
-.red {
-    border: red solid 2px;
-}
-
-
 .card-image {
     background-image: var(--tooltip-bg);
 }
