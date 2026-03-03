@@ -88,10 +88,6 @@ img.combat_barrier {
     margin-bottom: 5px;
 }
 
-.red {
-    border: red solid 2px;
-}
-
 .item-info {
     width: 20%;
     position: fixed;

@@ -18,4 +18,9 @@ export class CommonService {
             .filter(item => item.item_tier === tier)
             .sort((a, b) => a.name.localeCompare(b.name));
     }
+
+    sortByNameAlphabetical<T extends { name: string }>(array: T[]): T[] {
+         array=[...array].sort((a, b) => a.name.localeCompare(b.name));
+         return array;
+    }
 }

@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { ItemService } from '../../../service/shop.service/items.service';
+import { ItemService } from '../../../service/shop/items.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonService } from '../../../service/common.service';
