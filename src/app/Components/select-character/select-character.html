@@ -1,7 +1,12 @@
-<div class="select-character-container">
-    @for (heroe of allHeroes; track $index) {
+<main class="main-content">
+    <video autoplay muted loop playsInline id="background-select">
+        <source src="assets/background/roster_bg_loop.webm" type="video/webm">
+    </video>
+    <div class="select-character-container">
+        @for (heroe of allHeroes; track $index) {
         <div class="character-card">
             <div class="heroe-image" [style.background-image]="'url(' + heroe.images.icon_hero_card_webp+ ')'"></div>
         </div>
-    }
-</div>
+        }
+    </div>
+</main>
