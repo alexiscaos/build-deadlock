@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HeroeService } from '../../service/heroes/heroe.service';
 import { CommonService } from '../../service/common.service';
 
@@ -7,6 +7,7 @@ import { CommonService } from '../../service/common.service';
   imports: [],
   templateUrl: './select-character.html',
   styleUrl: './select-character.css',
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SelectCharacter {
   constructor(private heroService: HeroeService, private commonService: CommonService) { }

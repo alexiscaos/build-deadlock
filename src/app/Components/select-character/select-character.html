@@ -2,11 +2,23 @@
     <video autoplay muted loop playsInline id="background-select">
         <source src="assets/background/roster_bg_loop.webm" type="video/webm">
     </video>
-    <div class="select-character-container">
+    <div class="heroes_container">
+        <div class="select-character-container">
         @for (heroe of allHeroes; track $index) {
         <div class="character-card">
             <div class="heroe-image" [style.background-image]="'url(' + heroe.images.icon_hero_card_webp+ ')'"></div>
         </div>
         }
     </div>
+    <div class="container-3d">
+        <model-viewer class="model" [attr.animation-name]="'ui_hero_select'" [attr.src]="'/assets/heroes/Models/bebop1.glb'" ar touch-action="pan-y" 
+            shadow-intensity="1"
+            field-of-view="25deg" 
+            camera-target="0m 50cm -1m" 
+            camera-orbit="0deg 95deg 3m"
+            interpolation-decay="200">
+        </model-viewer>
+    </div>
+    </div>
+   
 </main>
