@@ -20,7 +20,7 @@ export class CommonService {
     }
 
     sortByNameAlphabetical<T extends { name: string }>(array: T[]): T[] {
-         array=[...array].sort((a, b) => a.name.localeCompare(b.name));
-         return array;
+        array = [...array].sort((a, b) => a.name.localeCompare(b.name));
+        return array;
     }
 }

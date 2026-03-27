@@ -12,10 +12,11 @@ import { CommonService } from '../../service/common.service';
 export class SelectCharacter {
   constructor(private heroService: HeroeService, private commonService: CommonService) { }
   public allHeroes: any[] = [];
-
+  public heroeSelected: any = null;
   ngOnInit() {
     this.loadAllHeroes();
     console.log(this.allHeroes);
+    this.heroeSelected = this.allHeroes[0];
   }
 
   loadAllHeroes() {

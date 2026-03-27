@@ -5,17 +5,17 @@
     padding: 0%;
 }
 .select-character-container {
-    width: 40%;
+    width: 34%;
     height: auto;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
     padding: 1%;
-    /* top: 50%;
+    top: 50%;
     left: 18%;
-    transform: translate(-50%, -50%); */
+    transform: translate(-50%, -50%);
     /* border: green solid 1px; */
-
+    position: absolute;
 }
 
 .character-card {
@@ -71,8 +71,17 @@
 }
 
 .container-3d{
-    /* border: red solid 1px; */
-    width: 90%;
+    border: red solid 1px;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+        object-fit: cover;  /* Importante: recorta el video para llenar el espacio sin deformarse */
+    z-index: -1;
+            position: fixed;    /* Fija el video para que no se mueva al hacer scroll */
+    top: 0;
+    left: 0;
+
 }
 
 .heroes_container{
@@ -81,6 +90,7 @@
     height: 97vh;  
     display: flex;
     justify-content: center;
+
 }
 .model{
     width: 100%;
