@@ -2,10 +2,11 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ChangeDetectorRef } from '@angular/c
 import { HeroeService } from '../../service/heroes/heroe.service';
 import { CommonService } from '../../service/common.service';
 import { CommonModule } from '@angular/common';
+import{HeroHabilities} from '../hero-habilities/hero-habilities.component';
 
 @Component({
   selector: 'app-select-character',
-  imports: [CommonModule],
+  imports: [CommonModule, HeroHabilities],
   templateUrl: './select-character.html',
   styleUrl: './select-character.css',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

@@ -23,4 +23,12 @@ export class CommonService {
         array = [...array].sort((a, b) => a.name.localeCompare(b.name));
         return array;
     }
+
+    getItemsByHeroeId(itemsArray: any[], heroId: string) {
+        console.log(`Filtrando habilidades para el héroe con ID: ${heroId}`);
+        console.log(`Número total de habilidades antes de filtrar: ${itemsArray.length}`);
+        itemsArray = itemsArray.filter(item => item.hero === heroId);
+        console.log(`Habilidades filtradas para el héroe ${heroId}:`, itemsArray);
+        return itemsArray;
+    }
 }

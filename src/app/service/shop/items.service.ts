@@ -9,10 +9,32 @@ export class ItemService {
 
     constructor(private http: HttpClient) { }
 
+    /**
+     * Obtiene TODOS los items sin filtrar
+     * Cada componente puede filtrar según lo necesite
+     */
     getAllItems() {
-        return this.http.get<any>(this.baseUrl).pipe(
+        return this.http.get<any>(this.baseUrl);
+    }
+
+    /**
+     * Obtiene solo los items que se pueden comprar en la tienda
+     */
+    getShopItems() {
+        return this.getAllItems().pipe(
             map(items => {
                 return items.filter((item: any) => item.shopable === true);
+            })
+        );
+    }
+
+    /**
+     * Obtiene items filtrados por un tipo específico
+     */
+    getItemsByType(itemType: string) {
+        return this.getAllItems().pipe(
+            map(items => {
+                return items.filter((item: any) => item.type === itemType);
             })
         );
     }

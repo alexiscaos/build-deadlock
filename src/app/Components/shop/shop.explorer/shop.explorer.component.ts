@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopCategory } from '../shop.category/shop.category'; 
+import { ShopCategory } from '../shop.category/shop.category.component'; 
 import { CommonModule } from '@angular/common';
 import { ItemService } from '../../../service/shop/items.service';
 import {ItemSlotType} from './ItemSlotType.enum';
@@ -28,7 +28,7 @@ export class ShopExplorerComponent implements OnInit {
   }
 
   public loadAllItems() {
-    this.itemService.getAllItems().subscribe({
+    this.itemService.getShopItems().subscribe({
       next: (data: any[]) => {
         this.allItems = data;
         this.isLoading = false;

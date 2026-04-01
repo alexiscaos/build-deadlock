@@ -1,0 +1,17 @@
+.hability-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hability{
+    border-radius: 100%;
+    border: red solid 1px;
+    width: 100px;
+    height: 100px;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}

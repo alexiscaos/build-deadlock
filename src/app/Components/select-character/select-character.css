@@ -14,7 +14,6 @@
     top: 50%;
     left: 18%;
     transform: translate(-50%, -50%);
-    /* border: green solid 1px; */
     position: absolute;
 }
 
@@ -61,24 +60,24 @@
     transform: translateY(5%);
 }
 #background-select{
-    position: fixed;    /* Fija el video para que no se mueva al hacer scroll */
+    position: fixed;    
     top: 0;
     left: 0;
-    width: 100vw;       /* 100% del ancho de la ventana */
-    height: 100vh;      /* 100% del alto de la ventana */
-    object-fit: cover;  /* Importante: recorta el video para llenar el espacio sin deformarse */
+    width: 100vw;      
+    height: 100vh;      
+    object-fit: cover;  
     z-index: -1;
 }
 
 .container-3d{
-    /* border: red solid 1px; */
+   
     width: 100%;
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-        object-fit: cover;  /* Importante: recorta el video para llenar el espacio sin deformarse */
+        object-fit: cover;  
     z-index: -1;
-            position: fixed;    /* Fija el video para que no se mueva al hacer scroll */
+            position: fixed;    
     top: 0;
     left: 0;
 
@@ -86,7 +85,7 @@
 
 .heroes_container{
     position: absolute;
-    width: 97vw;       /* 100% del ancho de la ventana */
+    width: 97vw;       
     height: 97vh;  
     display: flex;
     justify-content: center;
@@ -95,4 +94,58 @@
 .model{
     width: 100%;
     height: 100%;
+}
+
+.hero-tags{
+    /* border: red solid 1px; */
+    position: absolute;
+    top: 80%;
+    left: 65%;
+    color: white;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-around; */
+    height: auto;
+    gap: 10px;
+}
+
+.tag {
+  position: relative;
+  padding: 5px;
+  height: 50%;
+  width: min-content;
+  text-align: center;
+  color: white; 
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  z-index: -1;  
+  animation: tag-animation 2s steps(1) infinite;
+  background-color: var(--tag-bg, #000);
+}
+
+@keyframes tag-animation {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: rotate(2deg); }  
+  50% { transform:  rotate(-2deg); } 
+  75% { transform:  rotate(2deg); }   
+  100% { transform:  rotate(0deg); }
+}
+
+.hero-habilities-component{
+    position: absolute;
+    top: 85%;
+    left: 65%;
+    width: 30%;
+    height: auto;
 }
