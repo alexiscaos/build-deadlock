@@ -1,21 +1,34 @@
-<!-- <main class="main-content">
-
-</main> -->
-
 <video autoplay muted loop playsInline id="background-select">
     <source src="assets/background/roster_bg_loop.webm" type="video/webm">
 </video>
-    <div class="select-character-container">
-        @for (heroe of allHeroes; track $index) {
-        <div class="character-card">
-            <div class="heroe-image" [style.background-image]="'url(' + heroe.images.icon_hero_card_webp+ ')'"></div>
+
+<div class="select-character-container">
+    @if (allHeroes.length > 0) {
+        @for (heroe of allHeroes; track heroe.id) { 
+        <div class="character-card" (click)="showHeroDetails(heroe, $event)">
+            <div class="heroe-image" 
+                [style.background-image]="heroe?.images?.icon_hero_card_webp ? 'url(' + heroe.images.icon_hero_card_webp + ')' : 'none'">
+                <p style="color: white;">{{ heroe.name }}</p>
+            </div>
         </div>
         }
-    </div>
-    <div class="container-3d" [style.background-image]="'url(' + heroeSelected.images.background_image_webp+ ')'">
-        <model-viewer class="model" [attr.animation-name]="'ui_hero_select'"
-            [attr.src]="'/assets/heroes/models/Abrahams.glb'" ar touch-action="pan-y" shadow-intensity="1"
-            field-of-view="25deg" camera-target="0m 50cm -1m" camera-orbit="0deg 95deg 3m" interpolation-decay="200"
-            camera-controls>
+    } @else {
+        <p>Cargando héroes...</p>
+    }
+</div>
+
+@if (heroeSelected) {
+    <div class="container-3d" [style.background-image]="'url(' + heroeSelected.images?.background_image_webp + ')'">
+        <model-viewer class="model" 
+            autoplay        
+            [attr.src]="'/assets/heroes/models/' + heroeSelected.name + '.glb'" 
+            ar touch-action="pan-y" 
+            shadow-intensity="1"
+            [attr.camera-target]="getHeroConfig(heroeSelected.name, 'target')"
+            [attr.camera-orbit]="getHeroConfig(heroeSelected.name, 'orbit')"
+            [attr.field-of-view]="getHeroConfig(heroeSelected.name, 'fov')"
+            interpolation-decay="200"
+            >
         </model-viewer>
     </div>
+}
