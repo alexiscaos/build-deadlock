@@ -15,3 +15,18 @@
     background-size: cover;
     background-position: center;
 }
+
+.hability-info-container{
+    border: red solid 1px;
+    position: absolute;
+
+}
+
+.hability-info-container{
+    top: -103%;
+    left: 6%;
+    width: 64%;
+    height: auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}

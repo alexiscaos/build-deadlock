@@ -17,7 +17,7 @@ export class HeroHabilities implements OnInit, OnChanges {
   public heroeAbilities: any[] = [];
   public allAbilities: any[] = [];
   private isAbilitiesLoaded = false;
-
+  public selectedHability: any = null;
   constructor(private heroService: HeroeService, private cdr: ChangeDetectorRef, private itemService: ItemService, private commonService: CommonService) { }
 
   ngOnInit() {
@@ -26,11 +26,9 @@ export class HeroHabilities implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['heroe'] && changes['heroe'].currentValue) {
-      // Si ya están cargadas las habilidades, filtra inmediatamente
       if (this.isAbilitiesLoaded) {
         this.loadHeroAbilities();
       }
-      // Si no, espera a que se carguen
     }
   }
 
@@ -51,5 +49,13 @@ export class HeroHabilities implements OnInit, OnChanges {
         this.cdr.detectChanges();
       }
     });
+  }
+
+  showHabilityInfo(hability: any) {
+    this.selectedHability = hability;
+  }
+
+  hideHabilityInfo() {
+    this.selectedHability = null;
   }
 }
