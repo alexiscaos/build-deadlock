@@ -1,4 +1,4 @@
-.hability-container{
+.hability-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -6,27 +6,101 @@
     padding: 20px;
 }
 
-.hability{
+.hability {
     border-radius: 100%;
-    border: red solid 1px;
     width: 100px;
     height: 100px;
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-position: center;
+
+    background-color: var(--info-bg, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hability-info-container{
+.ability-image {
+    width: 70%;
+    height: 70%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+    filter: invert(1);
+
+}
+
+.hability-info-container {
     border: red solid 1px;
     position: absolute;
+    left: 6%;
+    width: 80%;
+    height: max-content;
+    position: absolute;
+    top: -103%;
+    transform: translate(-50%, -50%);
+}
+
+/* .hability-info-container {
+
+} */
+.ability-head {
+    display: flex;
+    justify-content: space-between;
 
 }
 
-.hability-info-container{
-    top: -103%;
-    left: 6%;
-    width: 64%;
-    height: auto;
-    position: absolute;
-    transform: translate(-50%, -50%);
+.ability-descrip {
+    clip-path: polygon(2% 8%,
+            96% 2%,
+            96% 92%,
+            4% 98%);
+    color: white;
+    padding: 5%;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+    background: #2f2936;
+    background: radial-gradient(circle, rgba(47, 41, 54, 1) 71%, rgba(88, 60, 102, 1) 93%);
+    border: solid rgb(237, 179, 18) 1px;
+    width: 100%;
+}
+
+.ability-points {
+    display: flex;
+    align-items: center;
+    border: blue solid 1px;
+    width: 40%;
+    justify-content: flex-end;
+
+}
+
+.ability-cooldown {
+    justify-content: flex-end;
+    background-color: #383838;
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 70%;
+}
+
+.point-icon {
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+
+}
+
+.second-points{
+    border: red solid 1px;
+}
+
+.ability-tiers{
+    display: flex;
+    gap: 5px;
+    border: green solid 1px;
+}
+
+.tier-card{
+       filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+    background: #2f2936;
+    background: radial-gradient(circle, rgba(47, 41, 54, 1) 71%, rgba(88, 60, 102, 1) 93%);
+    color: white;
 }

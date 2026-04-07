@@ -1,5 +1,5 @@
 <video autoplay muted loop playsInline id="background-select">
-    <!-- <source src="assets/background/roster_bg_loop.webm" type="video/webm" > -->
+    <source src="assets/background/roster_bg_loop.webm" type="video/webm"  autoplay>
 </video>
 
 <div class="select-character-container">
@@ -19,7 +19,7 @@
 
 @if (heroeSelected) {
     <div class="container-3d" [style.background-image]="'url(' + heroeSelected.images?.background_image_webp + ')'">
-        <!-- <model-viewer class="model" 
+        <model-viewer class="model" 
             autoplay        
             [attr.src]="'/assets/heroes/models/' + heroeSelected.name + '.glb'" 
             ar touch-action="pan-y" 
@@ -29,9 +29,11 @@
             [attr.field-of-view]="getHeroConfig(heroeSelected.name, 'fov')"
             interpolation-decay="200"
             >
-        </model-viewer> -->
+        </model-viewer>
     </div>
-
+    <div class="hero-name">
+        <h1>{{heroeSelected.name}}</h1>
+    </div>
     <div class="hero-tags">
         @for (tag of heroeSelected.tags; track $index) {
             <div class="tag" [style.--tag-bg]="'rgb(' + heroeSelected.colors.ui.join(',') + ')'">
@@ -39,5 +41,5 @@
             </div>
         }
     </div>
-    <app-hero-habilities class="hero-habilities-component" [heroe]="heroeSelected"></app-hero-habilities>
+    <app-hero-habilities class="hero-habilities-component" [heroe]="heroeSelected" [heroeColor]="heroeSelected.colors.ui.join(',')"></app-hero-habilities>
 }

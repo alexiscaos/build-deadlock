@@ -149,3 +149,12 @@
     width: 30%;
     height: auto;
 }
+.hero-name{
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    color: white;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}

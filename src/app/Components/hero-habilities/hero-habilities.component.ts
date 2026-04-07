@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ChangeDetectorRef, OnInit, computed } from '@angular/core';
 import { HeroeService } from '../../service/heroes/heroe.service';
 import { CommonModule } from '@angular/common';
-import { ItemService  } from '../../service/shop/items.service';
+import { ItemService } from '../../service/shop/items.service';
 import { CommonService } from '../../service/common.service';
 
 @Component({
@@ -14,6 +14,8 @@ import { CommonService } from '../../service/common.service';
 
 export class HeroHabilities implements OnInit, OnChanges {
   @Input() heroe: any = null;
+  @Input() heroeColor: any = null;
+
   public heroeAbilities: any[] = [];
   public allAbilities: any[] = [];
   private isAbilitiesLoaded = false;
@@ -44,7 +46,6 @@ export class HeroHabilities implements OnInit, OnChanges {
       next: (data: any[]) => {
         this.allAbilities = data;
         this.isAbilitiesLoaded = true;
-        // Si ya hay un héroe seleccionado, filtra ahora
         this.loadHeroAbilities();
         this.cdr.detectChanges();
       }
@@ -58,4 +59,17 @@ export class HeroHabilities implements OnInit, OnChanges {
   hideHabilityInfo() {
     this.selectedHability = null;
   }
+
+  tierAbility = computed(() => {
+    if (!this.selectedHability) return null;
+    const desc = this.selectedHability.description;
+    return Object.keys(desc)
+      .filter(key => key.startsWith('t') && key.endsWith('_desc'))
+      .sort()
+      .map(key => ({
+        key: key,
+        index: key.match(/\d+/)?.[0] || '',
+        value: desc[key as keyof typeof desc]
+      }));
+  });
 }

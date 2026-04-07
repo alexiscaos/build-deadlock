@@ -1,22 +1,110 @@
 <div class="hability-container">
     @for (hability of heroeAbilities; track $index) {
-    <div class="hability"  (mouseenter)="showHabilityInfo(hability)" (mouseleave)="hideHabilityInfo()" [style.background-image]="'url(' + hability.image_webp + ')'">
+    <div [style.--info-bg]="'rgb(' + heroeColor + ')'" class="hability" (mouseenter)="showHabilityInfo(hability)"
+        (mouseleave)="hideHabilityInfo()">
+        <div [style.background-image]="'url(' + hability.image_webp + ')'" class="ability-image">
+
+        </div>
     </div>
-}
+    }
 </div>
 
-@if(selectedHability) {
-    <div class="hability-info-container" style="border: green solid 1px;">
-        <p>
-            {{ selectedHability.name }}
-        </p>
+<!-- @if(selectedHability) {
+<div class="hability-info-container">
+    <div class="ability-descrip">
+        <div class="ability-head">
+            <div>
+                <p>
+                    {{ selectedHability.name }}
+                </p>
+            </div>
+
+
+            <div class="ability-points">
+                @if (selectedHability.properties.AbilityCooldown.value > 0) {
+                <div [style.background-image]="'url(' + selectedHability.properties.AbilityCooldown.icon + ')'"
+                    class="point-icon">
+                </div>
+                <p>
+                    {{ selectedHability.properties.AbilityCooldown.value }}{{
+                    selectedHability.properties.AbilityCooldown.postfix }}
+
+                </p>
+                }
+            </div>
+        </div>
+
 
         <p [innerHTML]="selectedHability.description.desc"></p>
-        <!-- @for (hability of heroeAbilities; track $index) {
-            <div class="hability-info">
-                <h3>{{ hability.name }}</h3>
-            </div>
-        } -->
     </div>
-}
 
+</div>
+} -->
+
+<div class="hability-info-container">
+    <div class="ability-descrip">
+        <div class="ability-head">
+            <div>
+                <p>
+                    {{ selectedHability.name }}
+                </p>
+            </div>
+
+
+            <div class="ability-points">
+                @if (selectedHability.properties.AbilityCooldown.value > 0) {
+                <div class="ability-cooldown">
+                    <div [style.background-image]="'url(' + selectedHability.properties.AbilityCooldown.icon + ')'"
+                        class="point-icon">
+                    </div>
+                    <div>
+                        <p>
+                            {{ selectedHability.properties.AbilityCooldown.value }}{{
+                            selectedHability.properties.AbilityCooldown.postfix }}
+
+                        </p>
+                    </div>
+                </div>
+
+                }
+            </div>
+
+        </div>
+
+        @if (selectedHability.properties.AbilityDuration.value>0) {
+        <div class="ability-cooldown" style="width: 15%; display: flex; align-items: center; justify-content: center;">
+            <div [style.background-image]="'url(' + selectedHability.properties.AbilityDuration.icon + ')'"
+                class="point-icon">
+            </div>
+            <p>
+                {{selectedHability.properties.AbilityDuration.value}}
+                {{selectedHability.properties.AbilityDuration.postfix }}
+
+            </p>
+        </div>
+
+        }
+
+        <p [innerHTML]="selectedHability.description.desc"></p>
+    </div>
+    <div class="ability-tiers">
+        @for (tier of tierAbility(); track tier.key) {
+          <div class="tier-card p-3 border-l-4 border-yellow-500 bg-slate-800/50 rounded-r-lg">
+            <span class="text-yellow-500 font-bold text-xs block mb-1">
+              TIER {{ tier.index }}
+            </span>
+            <!-- Usamos [innerHTML] porque el JSON contiene etiquetas HTML como <span> -->
+            <div class="text-sm leading-relaxed" [innerHTML]="tier.value"></div>
+          </div>
+        } @empty {
+          <p class="text-slate-500 italic">No hay mejoras disponibles.</p>
+        }
+        
+    </div>
+
+    <!-- @for (hability of heroeAbilities; track $index) {
+                <div class="hability-info">
+                    <h3>{{ hability.name }}</h3>
+                </div>
+        } -->
+</div>
